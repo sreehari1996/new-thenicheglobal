@@ -1,3 +1,63 @@
+// Preloader Logic
+window.addEventListener('load', () => {
+  const preloader = document.getElementById('preloader');
+  if (preloader) {
+    preloader.classList.add('loaded');
+    setTimeout(() => {
+      preloader.style.display = 'none';
+    }, 600); // Matches CSS transition duration
+  }
+});
+
+// ==========================================
+// Lenis Smooth Scrolling Initialization
+// ==========================================
+const lenis = new Lenis({
+  duration: 1.2,
+  easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Premium momentum ease
+  direction: 'vertical',
+  gestureDirection: 'vertical',
+  smooth: true,
+  mouseMultiplier: 1,
+  smoothTouch: false,
+  touchMultiplier: 2,
+  infinite: false,
+});
+
+// Sync Lenis scroll with GSAP ScrollTrigger
+if (typeof ScrollTrigger !== 'undefined') {
+  lenis.on('scroll', ScrollTrigger.update);
+
+  gsap.ticker.add((time) => {
+    lenis.raf(time * 1000);
+  });
+
+  gsap.ticker.lagSmoothing(0);
+} else {
+  // Fallback requestAnimationFrame if GSAP isn't loaded
+  function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+  requestAnimationFrame(raf);
+}
+
+// Handle anchor links for smooth scrolling via Lenis
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const targetId = this.getAttribute('href');
+    if (targetId && targetId !== '#') {
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        lenis.scrollTo(targetElement, { offset: -80 }); // Offset for fixed header
+      }
+    } else if (targetId === '#') {
+      lenis.scrollTo(0); // Scroll to top
+    }
+  });
+});
+
 // Intersection Observer for scroll animations
 const revealElements = document.querySelectorAll('.reveal');
 
@@ -54,15 +114,44 @@ function showResult() {
 
 // Header scroll effect
 const header = document.querySelector('.header');
+const heroSection = document.querySelector('.hero-section') || document.querySelector('#home');
+
 window.addEventListener('scroll', () => {
-  if (window.scrollY > 50) {
-    header.style.background = 'rgba(11, 17, 32, 0.9)';
-    header.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.5)';
+  // Use hero section height, fallback to window height (minus header padding)
+  const threshold = (heroSection ? heroSection.offsetHeight : window.innerHeight) - 80;
+
+  if (window.scrollY > threshold) {
+    header.style.backgroundColor = 'rgba(18, 31, 40, 0.95)';
+    header.style.backdropFilter = 'blur(10px)';
+    header.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.3)';
+    header.style.padding = '1rem 24px';
   } else {
-    header.style.background = 'rgba(11, 17, 32, 0.6)';
+    header.style.backgroundColor = 'transparent';
+    header.style.backdropFilter = 'none';
     header.style.boxShadow = 'none';
+    header.style.padding = '1.5rem 24px';
   }
 });
+
+// Mobile Menu Toggle
+const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+const navLinks = document.querySelector('.nav-links');
+
+if (mobileMenuBtn && navLinks) {
+  mobileMenuBtn.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    mobileMenuBtn.classList.toggle('active');
+  });
+
+  // Close menu when a link is clicked
+  const navItems = navLinks.querySelectorAll('a');
+  navItems.forEach(item => {
+    item.addEventListener('click', () => {
+      navLinks.classList.remove('active');
+      mobileMenuBtn.classList.remove('active');
+    });
+  });
+}
 
 // Hero Carousel Logic
 let currentSlide = 0;
@@ -188,10 +277,76 @@ if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
   });
 }
 
+// Mobile View: Apply GSAP Stagger Animations to Each Section on Scroll
+let mmMobile = gsap.matchMedia();
+mmMobile.add("(max-width: 900px)", () => {
+  
+  // Hide the first slide (Intro slide) of success stories on mobile view
+  const firstStorySlide = document.querySelector('#success-stories .gsap-story-slide:first-child');
+  if (firstStorySlide) {
+    firstStorySlide.style.display = 'none';
+  }
 
+  const mobileSections = document.querySelectorAll('.section');
+  mobileSections.forEach(section => {
+    // Skip sections that already have dedicated GSAP timelines handled elsewhere
+    if (section.id === 'who-we-are' || section.id === 'methodology' || section.id === 'how-it-works') return;
+    
+    // Select key content elements to stagger animate (removed .dest-card to give it a custom animation)
+    const elementsToAnimate = section.querySelectorAll('h2, h3, p, .subtitle, .btn, .pathway-card, .trust-list li, .collage-img, .partner-logo, .form-input');
+    
+    if (elementsToAnimate.length > 0) {
+      gsap.fromTo(elementsToAnimate,
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1.2,
+          stagger: 0.15,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: section,
+            start: "top 85%",
+            toggleActions: "play none none none"
+          }
+        }
+      );
+    }
+  });
 
-
-
+  // Dedicated Mobile Animation for Destination Cards
+  const destCards = document.querySelectorAll('.dest-card');
+  if (destCards.length > 0) {
+    destCards.forEach((card, i) => {
+      let destTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: card,
+          start: 'top 85%',
+          toggleActions: 'play none none reverse'
+        }
+      });
+      
+      // Card scales and fades up
+      destTl.fromTo(card,
+        { opacity: 0, y: 60, scale: 0.95 },
+        { opacity: 1, y: 0, scale: 1, duration: 0.8, ease: 'power3.out' }
+      )
+      // Content inside staggers in
+      .fromTo(card.querySelectorAll('.dest-card-content h3, .dest-card-content p, .dest-card-content a'),
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.5, stagger: 0.1, ease: 'power2.out' },
+        "-=0.4"
+      );
+    });
+  }
+  
+  // Cleanup function runs when transitioning back to desktop view (> 900px)
+  return () => {
+    if (firstStorySlide) {
+      firstStorySlide.style.display = '';
+    }
+  };
+});
 
 // Section 08: GSAP Horizontal Scroll Logic
 if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
@@ -222,3 +377,249 @@ if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
   }
 }
 
+// Success Stories Mobile Slider Logic (Arrows & Autoplay)
+const storySliderContainer = document.querySelector('.gsap-horizontal-container');
+const storyPrevBtn = document.querySelector('.prev-btn');
+const storyNextBtn = document.querySelector('.next-btn');
+
+if (storySliderContainer && storyPrevBtn && storyNextBtn) {
+  let autoplayInterval;
+
+  const scrollNext = () => {
+    if (window.innerWidth <= 992) {
+      // If we are near the end, scroll to beginning, otherwise scroll next
+      if (storySliderContainer.scrollLeft + storySliderContainer.clientWidth >= storySliderContainer.scrollWidth - 10) {
+        storySliderContainer.scrollTo({ left: 0, behavior: 'smooth' });
+      } else {
+        storySliderContainer.scrollBy({ left: storySliderContainer.clientWidth, behavior: 'smooth' });
+      }
+    }
+  };
+
+  const scrollPrev = () => {
+    if (window.innerWidth <= 992) {
+      // If we are at the beginning, scroll to end, otherwise scroll prev
+      if (storySliderContainer.scrollLeft <= 10) {
+        storySliderContainer.scrollTo({ left: storySliderContainer.scrollWidth, behavior: 'smooth' });
+      } else {
+        storySliderContainer.scrollBy({ left: -storySliderContainer.clientWidth, behavior: 'smooth' });
+      }
+    }
+  };
+
+  const startAutoplay = () => {
+    if (window.innerWidth <= 992) {
+      clearInterval(autoplayInterval);
+      autoplayInterval = setInterval(scrollNext, 4000);
+    }
+  };
+
+  const stopAutoplay = () => {
+    clearInterval(autoplayInterval);
+  };
+
+  storyNextBtn.addEventListener('click', () => {
+    scrollNext();
+    startAutoplay(); // Reset timer on manual click
+  });
+
+  storyPrevBtn.addEventListener('click', () => {
+    scrollPrev();
+    startAutoplay(); // Reset timer on manual click
+  });
+
+  // Pause autoplay on touch/scroll interaction
+  storySliderContainer.addEventListener('touchstart', stopAutoplay, { passive: true });
+  storySliderContainer.addEventListener('touchend', startAutoplay, { passive: true });
+  
+  // Start autoplay initially
+  startAutoplay();
+
+  // Handle resize events to start/stop based on window width
+  window.addEventListener('resize', () => {
+    if (window.innerWidth <= 992) {
+      startAutoplay();
+    } else {
+      stopAutoplay();
+    }
+  });
+}
+
+// ==========================================
+// Section 09: Profile Matcher Logic
+// ==========================================
+let matcherState = {
+  Qualification: '',
+  Experience: '',
+  Field: '',
+  Objective: '',
+  Destination: ''
+};
+
+function updateMatcherProgress(step) {
+  const bars = document.querySelectorAll('#matcher-progress-container .progress-bar');
+  bars.forEach((bar, index) => {
+    if (index < step) {
+      bar.classList.add('active');
+    } else {
+      bar.classList.remove('active');
+    }
+  });
+}
+
+window.nextMatcherStep = function(nextStepId, key, value) {
+  if (key && value) {
+    matcherState[key] = value;
+  }
+  
+  // Hide all steps
+  document.querySelectorAll('.matcher-step').forEach(step => {
+    step.style.display = 'none';
+  });
+  
+  // Show next step
+  const nextStep = document.getElementById(`matcher-step-${nextStepId}`);
+  if (nextStep) {
+    nextStep.style.display = 'block';
+    
+    // Animate in
+    gsap.fromTo(nextStep, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" });
+  }
+  
+  updateMatcherProgress(nextStepId > 6 ? 6 : nextStepId);
+};
+
+window.prevMatcherStep = function(prevStepId) {
+  // Hide all steps
+  document.querySelectorAll('.matcher-step').forEach(step => {
+    step.style.display = 'none';
+  });
+  
+  // Show prev step
+  const prevStep = document.getElementById(`matcher-step-${prevStepId}`);
+  if (prevStep) {
+    prevStep.style.display = 'block';
+  }
+  
+  updateMatcherProgress(prevStepId);
+};
+
+window.submitMatcher = function(event) {
+  event.preventDefault();
+  
+  // Collect lead details
+  matcherState.Name = document.getElementById('m-name').value;
+  matcherState.Phone = document.getElementById('m-phone').value;
+  matcherState.Email = document.getElementById('m-email').value;
+  
+  // Update result text dynamically based on selected field
+  const resultField = document.getElementById('result-field');
+  if (resultField) {
+    resultField.textContent = matcherState.Field || 'your chosen field';
+  }
+  
+  // Move to result step
+  nextMatcherStep(7);
+};
+
+// ==========================================
+// Section 10: Horizontal Journey GSAP
+// ==========================================
+if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+  const hjSteps = document.querySelectorAll('.gsap-hj-step');
+  if (hjSteps.length > 0) {
+    gsap.fromTo(hjSteps,
+      { opacity: 0, y: 30 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        stagger: 0.15,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '.horizontal-journey',
+          start: 'top 85%',
+          toggleActions: 'play none none reverse'
+        }
+      }
+    );
+  }
+
+  // Animate the progress line (width on desktop, height on mobile)
+  const hjProgress = document.getElementById('hj-progress');
+  if (hjProgress) {
+    let hjMm = gsap.matchMedia();
+    
+    hjMm.add("(min-width: 993px)", () => {
+      gsap.to(hjProgress, {
+        width: '100%',
+        ease: 'none',
+        scrollTrigger: {
+          trigger: '.horizontal-journey',
+          start: 'top 75%',
+          end: 'bottom 85%',
+          scrub: true
+        }
+      });
+    });
+
+    hjMm.add("(max-width: 992px)", () => {
+      gsap.to(hjProgress, {
+        height: '100%',
+        ease: 'none',
+        scrollTrigger: {
+          trigger: '.horizontal-journey',
+          start: 'top 80%',
+          end: 'bottom 90%',
+          scrub: true
+        }
+      });
+    });
+  }
+}
+
+// ==========================================
+// Section 11: FAQ Accordion Logic
+// ==========================================
+const faqItems = document.querySelectorAll('.faq-item');
+faqItems.forEach(item => {
+  const header = item.querySelector('.faq-header');
+  header.addEventListener('click', () => {
+    const isActive = item.classList.contains('active');
+    
+    // Close all
+    faqItems.forEach(faq => {
+      faq.classList.remove('active');
+      const content = faq.querySelector('.faq-content');
+      if (content) content.style.maxHeight = null;
+    });
+
+    // Open if it wasn't active
+    if (!isActive) {
+      item.classList.add('active');
+      const content = item.querySelector('.faq-content');
+      if (content) content.style.maxHeight = content.scrollHeight + "px";
+    }
+  });
+});
+
+// ==========================================
+// Back to Top Button Logic
+// ==========================================
+const backToTopBtn = document.getElementById('backToTopBtn');
+if (backToTopBtn) {
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 400) {
+      backToTopBtn.classList.add('show');
+    } else {
+      backToTopBtn.classList.remove('show');
+    }
+  });
+
+  backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+}
