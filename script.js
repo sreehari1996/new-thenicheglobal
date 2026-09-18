@@ -348,102 +348,7 @@ mmMobile.add("(max-width: 900px)", () => {
   };
 });
 
-// Section 08: GSAP Horizontal Scroll Logic
-if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-  const horizontalSection = document.querySelector('.gsap-horizontal-section');
-  const horizontalContainer = document.querySelector('.gsap-horizontal-container');
-  const slides = document.querySelectorAll('.gsap-story-slide');
-
-  if (horizontalSection && horizontalContainer && slides.length > 0) {
-    let mm = gsap.matchMedia();
-    
-    // Only apply horizontal pin on desktop/tablet
-    mm.add("(min-width: 993px)", () => {
-      let scrollWidth = horizontalContainer.offsetWidth - window.innerWidth;
-
-      gsap.to(horizontalContainer, {
-        x: -scrollWidth,
-        ease: "none",
-        scrollTrigger: {
-          trigger: horizontalSection,
-          start: "top top",
-          end: () => "+=" + scrollWidth, 
-          pin: true,
-          scrub: 1, 
-          invalidateOnRefresh: true
-        }
-      });
-    });
-  }
-}
-
-// Success Stories Mobile Slider Logic (Arrows & Autoplay)
-const storySliderContainer = document.querySelector('.gsap-horizontal-container');
-const storyPrevBtn = document.querySelector('.prev-btn');
-const storyNextBtn = document.querySelector('.next-btn');
-
-if (storySliderContainer && storyPrevBtn && storyNextBtn) {
-  let autoplayInterval;
-
-  const scrollNext = () => {
-    if (window.innerWidth <= 992) {
-      // If we are near the end, scroll to beginning, otherwise scroll next
-      if (storySliderContainer.scrollLeft + storySliderContainer.clientWidth >= storySliderContainer.scrollWidth - 10) {
-        storySliderContainer.scrollTo({ left: 0, behavior: 'smooth' });
-      } else {
-        storySliderContainer.scrollBy({ left: storySliderContainer.clientWidth, behavior: 'smooth' });
-      }
-    }
-  };
-
-  const scrollPrev = () => {
-    if (window.innerWidth <= 992) {
-      // If we are at the beginning, scroll to end, otherwise scroll prev
-      if (storySliderContainer.scrollLeft <= 10) {
-        storySliderContainer.scrollTo({ left: storySliderContainer.scrollWidth, behavior: 'smooth' });
-      } else {
-        storySliderContainer.scrollBy({ left: -storySliderContainer.clientWidth, behavior: 'smooth' });
-      }
-    }
-  };
-
-  const startAutoplay = () => {
-    if (window.innerWidth <= 992) {
-      clearInterval(autoplayInterval);
-      autoplayInterval = setInterval(scrollNext, 4000);
-    }
-  };
-
-  const stopAutoplay = () => {
-    clearInterval(autoplayInterval);
-  };
-
-  storyNextBtn.addEventListener('click', () => {
-    scrollNext();
-    startAutoplay(); // Reset timer on manual click
-  });
-
-  storyPrevBtn.addEventListener('click', () => {
-    scrollPrev();
-    startAutoplay(); // Reset timer on manual click
-  });
-
-  // Pause autoplay on touch/scroll interaction
-  storySliderContainer.addEventListener('touchstart', stopAutoplay, { passive: true });
-  storySliderContainer.addEventListener('touchend', startAutoplay, { passive: true });
-  
-  // Start autoplay initially
-  startAutoplay();
-
-  // Handle resize events to start/stop based on window width
-  window.addEventListener('resize', () => {
-    if (window.innerWidth <= 992) {
-      startAutoplay();
-    } else {
-      stopAutoplay();
-    }
-  });
-}
+// Removed GSAP Horizontal Scroll and Mobile Slider Logic since Success Stories is now a CSS Grid.
 
 // ==========================================
 // Section 09: Profile Matcher Logic
@@ -623,3 +528,72 @@ if (backToTopBtn) {
     });
   });
 }
+
+// ==========================================
+// Success Stories Mobile Slider Logic
+// ==========================================
+document.addEventListener('DOMContentLoaded', () => {
+  const storiesGrid = document.querySelector('.stories-grid');
+  const storyCards = document.querySelectorAll('.stories-grid .story-card');
+  const dotsContainer = document.querySelector('.stories-slider-dots');
+  
+  if (storiesGrid && storyCards.length > 0 && dotsContainer) {
+    let currentStory = 0;
+    
+    // Create dots
+    storyCards.forEach((_, i) => {
+      const dot = document.createElement('div');
+      dot.classList.add('story-dot');
+      if (i === 0) dot.classList.add('active');
+      dot.addEventListener('click', () => {
+        scrollToStory(i);
+      });
+      dotsContainer.appendChild(dot);
+    });
+    
+    const dots = document.querySelectorAll('.story-dot');
+    
+    function scrollToStory(index) {
+      if (index < 0 || index >= storyCards.length) return;
+      currentStory = index;
+      
+      // Update dots
+      dots.forEach(d => d.classList.remove('active'));
+      if(dots[currentStory]) dots[currentStory].classList.add('active');
+      
+      // Scroll grid
+      const card = storyCards[currentStory];
+      storiesGrid.scrollTo({
+        left: card.offsetLeft - storiesGrid.offsetLeft,
+        behavior: 'smooth'
+      });
+    }
+    
+    // Auto slide
+    let storyAutoSlide = setInterval(() => {
+      // Only auto-slide if on mobile/tab view (where dots are visible)
+      if (window.innerWidth <= 992) {
+        let next = (currentStory + 1) % storyCards.length;
+        scrollToStory(next);
+      }
+    }, 4000);
+    
+    // Pause on touch/interaction
+    storiesGrid.addEventListener('touchstart', () => clearInterval(storyAutoSlide), {passive: true});
+    storiesGrid.addEventListener('mousedown', () => clearInterval(storyAutoSlide), {passive: true});
+    
+    // Listen for manual scrolling to update dots
+    storiesGrid.addEventListener('scroll', () => {
+      if (window.innerWidth > 992) return;
+      
+      const scrollLeft = storiesGrid.scrollLeft;
+      const cardWidth = storyCards[0].offsetWidth;
+      let newIndex = Math.round(scrollLeft / cardWidth);
+      if (newIndex !== currentStory && newIndex >= 0 && newIndex < storyCards.length) {
+        currentStory = newIndex;
+        dots.forEach(d => d.classList.remove('active'));
+        if(dots[currentStory]) dots[currentStory].classList.add('active');
+      }
+    }, {passive: true});
+  }
+});
