@@ -14,11 +14,11 @@
   --text-light: #FFFFFF;
   --text-light-muted: #A3B5C6;
 
-  --accent-primary: #D81A29;
-  /* Primary Red */
-  --accent-hover: #B51522;
-  --accent-secondary: #8EA4B8;
-  /* Premium Slate Blue for soft accents */
+  --accent-primary: #4A6B8C;
+  /* Premium Steel Blue */
+  --accent-hover: #334E68;
+  --accent-secondary: #5C7A99;
+  --accent-gradient: #4A6B8C; /* Fallback to solid for clean look */
 
   --border-light: rgba(0, 0, 0, 0.08);
   --border-dark: rgba(255, 255, 255, 0.1);
@@ -272,14 +272,16 @@ a {
 
 .btn-primary {
   background: var(--accent-primary);
-  color: #fff;
-  box-shadow: 0 8px 24px rgba(216, 26, 41, 0.25);
+  color: #ffffff;
+  border: 1px solid transparent;
+  box-shadow: 0 4px 12px rgba(0, 33, 71, 0.15); /* Soft, grounded shadow */
+  text-shadow: none;
 }
 
 .btn-primary:hover {
   background: var(--accent-hover);
   transform: translateY(-2px);
-  box-shadow: 0 12px 30px rgba(216, 26, 41, 0.35);
+  box-shadow: 0 8px 20px rgba(0, 33, 71, 0.25);
 }
 
 .btn-large {
