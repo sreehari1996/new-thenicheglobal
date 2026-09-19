@@ -114,7 +114,7 @@ function showResult() {
 
 // Header scroll effect
 const header = document.querySelector('.header');
-const heroSection = document.querySelector('.hero-section') || document.querySelector('#home');
+const heroSection = document.querySelector('section[class*="hero"]') || document.querySelector('#home');
 
 window.addEventListener('scroll', () => {
   // Use hero section height, fallback to window height (minus header padding)

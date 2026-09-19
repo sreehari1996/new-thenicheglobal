@@ -338,8 +338,10 @@ a {
 
 .nav-links {
   display: flex;
-  gap: 2.5rem;
   align-items: center;
+  flex: 1;
+  justify-content: space-evenly;
+  margin-left: 3rem;
 }
 
 .nav-links a {

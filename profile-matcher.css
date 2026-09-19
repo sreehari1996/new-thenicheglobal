@@ -4,9 +4,7 @@
    Page Base
    ============================================ */
 .matcher-page {
-  min-height: 100vh;
   background: #F7F8FA;
-  padding-top: 90px;
 }
 
 /* ============================================
@@ -21,8 +19,8 @@
 /* ---- Left Panel ---- */
 .matcher-left {
   position: sticky;
-  top: 90px;
-  height: calc(100vh - 90px);
+  top: 72px;
+  height: calc(100vh - 72px);
   background: var(--bg-dark);
   padding: 4rem 3.5rem;
   display: flex;
@@ -527,37 +525,37 @@
 }
 
 /* ============================================
-   Mobile Responsive
+   Mobile Responsive & Premium App Feel
    ============================================ */
 @media (max-width: 1024px) {
   .matcher-layout {
     grid-template-columns: 1fr;
   }
 
+  /* Hide the left panel entirely on mobile to save vertical space.
+     The hero section already sets the context. */
   .matcher-left {
-    position: relative;
-    top: 0;
-    height: auto;
-    min-height: unset;
-    padding: 3rem 2rem 2.5rem;
-  }
-
-  .matcher-trust-badges {
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin-top: 2rem;
+    display: none;
   }
 
   .matcher-right {
-    padding: 3rem 1.5rem 4rem;
+    padding: 3rem 2rem 4rem;
   }
 
   .pm-progress-track {
     margin-bottom: 2.5rem;
   }
+  
+  .pm-summary-bar {
+    margin-bottom: 1.5rem;
+  }
 }
 
 @media (max-width: 600px) {
+  .matcher-right {
+    padding: 2rem 1.2rem 3rem;
+  }
+
   .pm-options-grid {
     grid-template-columns: 1fr 1fr;
     gap: 0.75rem;
@@ -568,22 +566,63 @@
   }
 
   .pm-option-card {
-    padding: 1rem;
+    padding: 1.2rem 1rem;
+    align-items: center;
+    text-align: center;
+  }
+  
+  /* Fix destination cards to look good centered on mobile */
+  .pm-dest-card {
+    flex-direction: column;
+    gap: 0.5rem;
   }
 
   .pm-step h2 {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
+    margin-bottom: 0.8rem;
+    letter-spacing: -0.5px;
   }
-
-  .matcher-left-content h1 {
-    font-size: 1.8rem;
+  
+  .pm-step .pm-hint {
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+    line-height: 1.5;
   }
 
   .pm-nav {
-    flex-wrap: wrap;
+    flex-direction: column-reverse;
+    align-items: stretch;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .pm-back-btn {
+    justify-content: center;
+    padding: 0.9rem;
+    font-size: 0.95rem;
+    border-color: rgba(0,0,0,0.15);
   }
 
   .pm-talk-link {
-    margin-left: 0;
+    text-align: center;
+    margin: 0 auto;
+    padding: 0.8rem;
+    font-size: 0.9rem;
+  }
+  
+  .pm-step-dot {
+    width: 24px;
+    height: 24px;
+    font-size: 0.65rem;
+  }
+  
+  /* Lead Form adjustments */
+  .pm-form-input {
+    padding: 1rem 1.1rem;
+    font-size: 1rem; /* Prevents iOS Safari zoom */
+  }
+  
+  .pm-consent-row label {
+    font-size: 0.8rem;
   }
 }
