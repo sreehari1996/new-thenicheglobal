@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Opportunities & Pathways | Niche Global</title>
+  <meta name="description" content="Explore legitimate international career pathways designed for your profile.">
+  <link rel="stylesheet" href="styles.css">
+  
+  <!-- Page Specific Styles for Hero -->
+  <style>
+    .opp-hero {
+      position: relative;
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 160px 24px 80px;
+      background: var(--bg-dark);
+      overflow: hidden;
+    }
+
+    .opp-hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .opp-hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.3) contrast(1.2);
+    }
+
+    .opp-hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, var(--bg-dark) 0%, transparent 50%, var(--bg-dark) 100%);
+    }
+
+    .opp-hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .opp-hero h1 {
+      font-size: clamp(3.5rem, 6vw, 6.5rem);
+      font-weight: 300;
+      margin-bottom: 1.5rem;
+      letter-spacing: -2px;
+      line-height: 1;
+      color: #fff;
+    }
+
+    .opp-hero p {
+      font-size: 1.35rem;
+      color: rgba(255,255,255,0.7);
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    
+    @media (max-width: 768px) {
+      .opp-hero {
+        min-height: 50vh;
+        padding: 140px 24px 40px;
+      }
+      .opp-hero h1 {
+        font-size: clamp(3rem, 10vw, 4rem);
+      }
+    }
+
+    /* Layout specific CSS for Opportunities Page */
+    .sticky-stack-container {
+      display: flex;
+      align-items: flex-start;
+      gap: 4rem;
+      position: relative;
+    }
+    
+    .sticky-stack-title {
+      width: 40%;
+      position: sticky;
+      top: 25vh;
+    }
+    
+    .sticky-stack-cards {
+      width: 60%;
+      display: flex;
+      flex-direction: column;
+      gap: 5vh;
+    }
+
+    .pathway-card {
+      padding: 3rem;
+      border-radius: var(--radius-lg);
+      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+      transition: transform 0.4s ease;
+      background: var(--bg-white);
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+    
+    .pathway-card.card-dark {
+      background: var(--bg-dark);
+      color: var(--text-light);
+    }
+
+    .pathway-card.card-dark h3 { color: #fff; }
+    .pathway-card.card-dark p { color: rgba(255,255,255,0.7); }
+    
+    .pathway-icon {
+      width: 60px;
+      height: 60px;
+      background: rgba(0, 168, 204, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent-secondary);
+      margin-bottom: 2rem;
+    }
+
+    .pathway-content h3 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      font-family: var(--font-heading);
+    }
+
+    .pathway-link {
+      display: inline-block;
+      margin-top: 1.5rem;
+      font-weight: 600;
+      color: var(--accent-secondary);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      text-decoration: none;
+    }
+    
+    .process-timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 992px) {
+      .sticky-stack-container {
+        flex-direction: column;
+        gap: 2rem;
+      }
+      
+      .sticky-stack-title {
+        width: 100%;
+        position: relative !important;
+        top: auto !important;
+        margin-bottom: 2rem;
+      }
+      
+      .sticky-stack-cards {
+        width: 100%;
+        gap: 2rem;
+      }
+      
+      .pathway-card {
+        position: relative !important;
+        top: auto !important;
+        margin-bottom: 0 !important;
+        z-index: 1 !important;
+      }
+      
+      .process-timeline {
+        gap: 2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-nav">
+      <div class="logo" style="display:flex; align-items:center;">
+        <img src="assets/niche-global-logo.png" alt="Niche Global Logo"
+          style="height: 40px; width: auto; object-fit: contain;">
+      </div>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="Destinations.html">Destinations</a>
+        <a href="Opportunities.html" style="color: #fff; opacity: 1;">Opportunities</a>
+        <a href="index.html#success-stories">Success Stories</a>
+        <a href="index.html#how-it-works">How it Works</a>
+        <a href="index.html#faq">FAQ</a>
+        <a href="index.html#matcher" class="btn btn-outline-light"
+          style="padding: 0.5rem 1.5rem; text-transform:none; border-radius: var(--radius-full);">Get Started</a>
+      </nav>
+      <button class="mobile-menu-btn" aria-label="Toggle Menu"
+        style="display: none; background: transparent; border: none; color: inherit; cursor: pointer; z-index: 101;">
+        <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round" viewBox="0 0 24 24">
+          <path d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="opp-hero">
+    <div class="opp-hero-bg">
+      <img src="assets/international_workplace.jpg" alt="Global Career Opportunities">
+    </div>
+    <div class="opp-hero-content">
+      <span class="label" style="color: var(--accent-secondary); border-bottom-color: rgba(255,255,255,0.2);">HOW YOU GET THERE</span>
+      <h1 class="font-serif">Pathways to Global<br>Success.</h1>
+      <p>The country is where you go; the pathway is how you get there. We focus on legitimate, strategic routes tailored to your education, skills, and ambitions.</p>
+    </div>
+  </section>
+
+  <!-- Sticky Stack Pathways Layout (Matches index.html) -->
+  <section class="section theme-light" style="position: relative; padding-bottom: 15vh; padding-top: 15vh;">
+    <div class="container">
+      <div class="sticky-stack-container">
+
+        <!-- Left Side: Sticky Title -->
+        <div class="sticky-stack-title">
+          <div>
+            <span class="label">OPPORTUNITIES & PATHWAYS</span>
+            <h2 class="font-serif" style="font-size: clamp(3rem, 5vw, 4.5rem); margin-bottom: 1rem; line-height: 1.1;">
+              Find Your<br>Route</h2>
+            <p class="subtitle mt-4" style="max-width: 400px; color: var(--text-dark-muted);">Introduce types of legitimate international career
+              pathways. Your country is the destination; the pathway is how you get there.</p>
+            <a href="index.html#matcher" class="btn btn-primary mt-8" style="display: inline-block;">Check My Profile</a>
+          </div>
+        </div>
+
+        <!-- Right Side: Stacked Cards -->
+        <div class="sticky-stack-cards">
+
+          <!-- Card 1 -->
+          <div class="pathway-card card-dark" style="position: sticky; top: 15vh; z-index: 1;">
+            <div class="pathway-icon">
+              <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+              </svg>
+            </div>
+            <div class="pathway-content">
+              <h3>Employment-Linked Pathways</h3>
+              <p>Designed for direct career integration, these pathways connect highly qualified candidates with established international employers. Where legally and factually applicable, this route may involve employer sponsorship or direct-hire mechanisms.</p>
+              <a href="index.html#matcher" class="pathway-link">Explore Pathways &rarr;</a>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="pathway-card card-light" style="position: sticky; top: 18vh; z-index: 2;">
+            <div class="pathway-icon">
+              <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+              </svg>
+            </div>
+            <div class="pathway-content">
+              <h3>Education-to-Career</h3>
+              <p>Education is a strategic stepping stone, not just a certificate. This pathway utilizes higher learning to create access to relevant international experience, networking, and post-study career possibilities in leading economies.</p>
+              <a href="index.html#matcher" class="pathway-link">Explore Pathways &rarr;</a>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="pathway-card card-light" style="position: sticky; top: 21vh; z-index: 3;">
+            <div class="pathway-icon">
+              <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M2 12h20"></path>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+              </svg>
+            </div>
+            <div class="pathway-content">
+              <h3>International Internships</h3>
+              <p>Structured, hands-on international internship experiences designed to build a competitive global profile and open doors for subsequent career opportunities without the pressure of full-time direct hiring immediately.</p>
+              <a href="index.html#matcher" class="pathway-link">Explore Pathways &rarr;</a>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="pathway-card card-light" style="position: sticky; top: 24vh; z-index: 4;">
+            <div class="pathway-icon">
+              <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                <line x1="12" y1="22.08" x2="12" y2="12"></line>
+              </svg>
+            </div>
+            <div class="pathway-content">
+              <h3>Training & Exchange</h3>
+              <p>Global training, professional development programs, and eligible exchange routes designed to upgrade your skills to meet international industry standards. Perfect for bridging the gap between local experience and global requirements.</p>
+              <a href="index.html#matcher" class="pathway-link">Explore Pathways &rarr;</a>
+            </div>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="pathway-card card-dark" style="position: sticky; top: 27vh; z-index: 5; margin-bottom: 0;">
+            <div class="pathway-icon">
+              <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+              </svg>
+            </div>
+            <div class="pathway-content">
+              <h3>Specialized Professional</h3>
+              <p>Bespoke, profile-specific routes for highly experienced, skilled, or uniquely qualifying professionals seeking advancement. Eligibility depends entirely on your exact background and the destination market's specific demands.</p>
+              <a href="index.html#matcher" class="pathway-link">Explore Pathways &rarr;</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Target Industries Section -->
+  <section class="section theme-light" style="padding-top: 5rem; padding-bottom: 8rem; background-color: var(--bg-white);">
+    <div class="container reveal">
+      <div style="text-align: center; margin-bottom: 4rem;">
+        <span class="label">HIGH-DEMAND SECTORS</span>
+        <h2 class="font-serif">Where the Opportunities Are</h2>
+        <p class="subtitle" style="margin: 1rem auto 0; max-width: 600px; color: var(--text-dark-muted);">We map pathways specifically toward industries experiencing structural global shortages, ensuring a higher probability of long-term career success.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+        
+        <!-- Sector 1 -->
+        <div style="background: rgba(142, 164, 184, 0.05); border: 1px solid rgba(142, 164, 184, 0.2); padding: 3rem 2rem; border-radius: var(--radius-lg); text-align: center; transition: transform 0.3s ease;">
+          <div style="width: 60px; height: 60px; background: rgba(0, 168, 204, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; color: var(--accent-secondary);">
+            <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+          </div>
+          <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--text-dark);">Healthcare & Nursing</h3>
+          <p style="color: var(--text-dark-muted); font-size: 0.95rem; line-height: 1.6;">Direct employment and specialized bridging programs for qualified nurses and allied health professionals in the US, UK, and Australia.</p>
+        </div>
+
+        <!-- Sector 2 -->
+        <div style="background: rgba(142, 164, 184, 0.05); border: 1px solid rgba(142, 164, 184, 0.2); padding: 3rem 2rem; border-radius: var(--radius-lg); text-align: center; transition: transform 0.3s ease;">
+          <div style="width: 60px; height: 60px; background: rgba(0, 168, 204, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; color: var(--accent-secondary);">
+            <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+          </div>
+          <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--text-dark);">Technology & Engineering</h3>
+          <p style="color: var(--text-dark-muted); font-size: 0.95rem; line-height: 1.6;">Education-to-career and skilled professional pathways for software engineers, data scientists, and specialized technicians.</p>
+        </div>
+
+        <!-- Sector 3 -->
+        <div style="background: rgba(142, 164, 184, 0.05); border: 1px solid rgba(142, 164, 184, 0.2); padding: 3rem 2rem; border-radius: var(--radius-lg); text-align: center; transition: transform 0.3s ease;">
+          <div style="width: 60px; height: 60px; background: rgba(0, 168, 204, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; color: var(--accent-secondary);">
+            <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+          </div>
+          <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--text-dark);">Hospitality & Management</h3>
+          <p style="color: var(--text-dark-muted); font-size: 0.95rem; line-height: 1.6;">International internships and training exchange programs in global luxury hotels, culinary arts, and tourism hubs.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Timeline Section -->
+  <section class="section theme-dark" style="background-color: var(--bg-dark-secondary); padding: 6rem 0;">
+    <div class="container reveal">
+      <div class="grid-2" style="align-items: center; gap: 4rem;">
+        <div>
+          <span class="label">THE NICHE GLOBAL METHOD</span>
+          <h2 class="font-serif">How We Map Your Pathway</h2>
+          <p class="subtitle mt-4">We do not push pre-packaged visas. Every candidate goes through a rigorous qualification and matching process.</p>
+          <a href="index.html#matcher" class="btn btn-primary mt-8">Start Your Assessment</a>
+        </div>
+        
+        <div>
+          <div style="display: flex; gap: 1.5rem; margin-bottom: 2.5rem;">
+            <div style="font-family: var(--font-heading); font-size: 3.5rem; font-weight: 700; color: rgba(255,255,255,0.05); line-height: 0.8;">01</div>
+            <div>
+              <h4 style="font-size: 1.25rem; color: #fff; margin-bottom: 0.5rem;">Profile Evaluation</h4>
+              <p style="color: var(--text-light-muted); font-size: 0.95rem; line-height: 1.6;">A deep dive into your academic background, professional experience, financial capacity, and career ambitions.</p>
+            </div>
+          </div>
+          <div style="display: flex; gap: 1.5rem; margin-bottom: 2.5rem;">
+            <div style="font-family: var(--font-heading); font-size: 3.5rem; font-weight: 700; color: rgba(255,255,255,0.05); line-height: 0.8;">02</div>
+            <div>
+              <h4 style="font-size: 1.25rem; color: #fff; margin-bottom: 0.5rem;">Market Alignment</h4>
+              <p style="color: var(--text-light-muted); font-size: 0.95rem; line-height: 1.6;">Matching your profile against structural labor shortages and realistic immigration routes in our target destinations.</p>
+            </div>
+          </div>
+          <div style="display: flex; gap: 1.5rem;">
+            <div style="font-family: var(--font-heading); font-size: 3.5rem; font-weight: 700; color: rgba(255,255,255,0.05); line-height: 0.8;">03</div>
+            <div>
+              <h4 style="font-size: 1.25rem; color: #fff; margin-bottom: 0.5rem;">Pathway Execution</h4>
+              <p style="color: var(--text-light-muted); font-size: 0.95rem; line-height: 1.6;">Providing end-to-end guidance, from documentation and employer liaison to final visa processing and deployment.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Note on Transparency -->
+  <section class="section theme-dark">
+    <div class="container reveal">
+      <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius-lg); padding: 4rem; text-align: center; max-width: 900px; margin: 0 auto;">
+        <h3 class="font-serif" style="color: var(--accent-secondary); margin-bottom: 1.5rem; font-size: 2rem;">A Note on Transparency</h3>
+        <p class="subtitle" style="margin: 0 auto;">At Niche Global, we prioritize your profile over any specific pathway. We do not guarantee jobs, visas, or automatic conversions. The appropriate route always depends on an honest evaluation of your individual profile, education, experience, and the applicable legal requirements of the destination market.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer theme-dark">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <div class="logo footer-logo">
+          <img src="assets/niche-global-logo.png" alt="Niche Global Logo" style="height: 40px; width: auto; object-fit: contain;">
+        </div>
+        <p class="footer-desc">Life Beyond Borders. We help you explore realistic pathways to build a career and a life internationally, starting with your unique profile.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="LinkedIn"><svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.202 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="about.html">Who We Are</a>
+          <a href="Destinations.html">Destinations</a>
+          <a href="Opportunities.html">Opportunities</a>
+          <a href="index.html#matcher">Find Your Fit</a>
+        </nav>
+      </div>
+      <div class="footer-contact">
+        <h4>Contact Us</h4>
+        <div class="contact-details">
+          <p><strong>Headquarters</strong><br>Kochi, Kerala, India</p>
+          <p><a href="mailto:hello@nicheglobal.com">hello@nicheglobal.com</a><br><a href="tel:+910000000000">+91 0000 000 000</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="container footer-bottom-bar">
+      <div class="copyright">&copy; 2026 Niche Global. All rights reserved.</div>
+      <div class="legal-links"><a href="#">Privacy Policy</a> <a href="#">Terms of Service</a></div>
+    </div>
+  </footer>
+
+  <button id="backToTopBtn" aria-label="Back to top" class="back-to-top">
+    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+
+  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.27/bundled/lenis.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="script.js"></script>
+  
+  <!-- GSAP Mobile Animations & Enhancements -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      gsap.registerPlugin(ScrollTrigger);
+      
+      // Hero Animation
+      gsap.fromTo(".opp-hero-content > *", 
+        { opacity: 0, y: 30 }, 
+        { opacity: 1, y: 0, duration: 1, stagger: 0.15, ease: "power3.out", delay: 0.2 }
+      );
+
+      // Media Match for Mobile-Specific Animations
+      let mm = gsap.matchMedia();
+
+      mm.add("(max-width: 992px)", () => {
+        // Mobile: Pathway Cards slide up and fade in one by one
+        gsap.utils.toArray('.pathway-card').forEach((card, i) => {
+          gsap.fromTo(card, 
+            { opacity: 0, y: 50 },
+            {
+              opacity: 1, y: 0, 
+              duration: 0.8,
+              ease: "power3.out",
+              scrollTrigger: {
+                trigger: card,
+                start: "top 85%",
+                toggleActions: "play none none reverse"
+              }
+            }
+          );
+        });
+
+        // Mobile: Sector Grid staggered reveal
+        gsap.fromTo('.theme-light .container > div:nth-child(2) > div', 
+          { opacity: 0, scale: 0.95, y: 30 },
+          {
+            opacity: 1, scale: 1, y: 0,
+            duration: 0.6,
+            stagger: 0.15,
+            ease: "back.out(1.2)",
+            scrollTrigger: {
+              trigger: '.theme-light .container > div:nth-child(2)',
+              start: "top 85%"
+            }
+          }
+        );
+
+        // Mobile: Process Timeline slide in from left
+        gsap.utils.toArray('.grid-2 > div:nth-child(2) > div').forEach((step, i) => {
+          gsap.fromTo(step,
+            { opacity: 0, x: -30 },
+            {
+              opacity: 1, x: 0,
+              duration: 0.8,
+              ease: "power2.out",
+              scrollTrigger: {
+                trigger: step,
+                start: "top 90%"
+              }
+            }
+          );
+        });
+      });
+
+      mm.add("(min-width: 993px)", () => {
+        // Desktop: Stagger sector cards
+        gsap.fromTo('.theme-light .container > div:nth-child(2) > div', 
+          { opacity: 0, y: 40 },
+          {
+            opacity: 1, y: 0,
+            duration: 0.8,
+            stagger: 0.2,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: '.theme-light .container > div:nth-child(2)',
+              start: "top 75%"
+            }
+          }
+        );
+      });
+    });
+  </script>
+</body>
+</html>
