@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile Matcher | Find Your International Career Pathway | Niche Global</title>
+  <meta name="description"
+    content="Answer 5 simple questions and let Niche Global identify which international career pathways could genuinely fit your profile, education, and goals.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="profile-matcher.css">
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-nav">
+      <div class="logo" style="display:flex; align-items:center;">
+        <img src="assets/niche-global-logo.png" alt="Niche Global Logo"
+          style="height: 40px; width: auto; object-fit: contain;">
+      </div>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="Destinations.html">Destinations</a>
+        <a href="Opportunities.html">Opportunities</a>
+        <a href="success-stories.html">Success Stories</a>
+        <a href="partners.html">Partners</a>
+        <a href="index.html#how-it-works">How it Works</a>
+        <a href="faq.html">FAQ</a>
+        <a href="profile-matcher.html" class="btn btn-outline-light"
+          style="padding: 0.5rem 1.5rem; text-transform:none; border-radius: var(--radius-full); color:#fff; opacity:1;">Check My Profile</a>
+      </nav>
+      <button class="mobile-menu-btn" aria-label="Toggle Menu"
+        style="display: none; background: transparent; border: none; color: inherit; cursor: pointer; z-index: 101;">
+        <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round" viewBox="0 0 24 24">
+          <path d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Layout -->
+  <div class="matcher-page">
+    <div class="matcher-layout">
+
+      <!-- ===== LEFT PANEL (Sticky) ===== -->
+      <aside class="matcher-left">
+        <!-- Decorative SVG background -->
+        <div class="matcher-left-bg" aria-hidden="true">
+          <svg viewBox="0 0 420 700" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+            <!-- Perspective converging lines -->
+            <line x1="0"   y1="0" x2="210" y2="700" stroke="rgba(92,122,153,0.12)" stroke-width="1"/>
+            <line x1="105" y1="0" x2="210" y2="700" stroke="rgba(92,122,153,0.09)" stroke-width="1"/>
+            <line x1="210" y1="0" x2="210" y2="700" stroke="rgba(92,122,153,0.07)" stroke-width="1"/>
+            <line x1="315" y1="0" x2="210" y2="700" stroke="rgba(92,122,153,0.09)" stroke-width="1"/>
+            <line x1="420" y1="0" x2="210" y2="700" stroke="rgba(92,122,153,0.12)" stroke-width="1"/>
+            <!-- Horizontal lines -->
+            <line x1="0" y1="350" x2="420" y2="350" stroke="rgba(92,122,153,0.08)" stroke-width="1"/>
+            <line x1="0" y1="450" x2="420" y2="450" stroke="rgba(92,122,153,0.06)" stroke-width="1"/>
+            <line x1="0" y1="550" x2="420" y2="550" stroke="rgba(92,122,153,0.04)" stroke-width="1"/>
+            <!-- Glow at bottom -->
+            <ellipse cx="210" cy="720" rx="260" ry="160" fill="rgba(74,107,140,0.18)"/>
+          </svg>
+        </div>
+
+        <!-- Content -->
+        <div class="matcher-left-content">
+          <span class="label">FIND WHAT COULD FIT YOU</span>
+          <h1>Your Profile<br>Comes First.</h1>
+          <p>Answer 5 short questions and we'll use your profile — not a country catalogue — to identify which international career pathways may be worth exploring.</p>
+
+          <div class="matcher-trust-badges">
+            <div class="trust-badge">
+              <div class="trust-badge-icon">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+              </div>
+              <span>No eligibility guarantees. Honest assessment only.</span>
+            </div>
+            <div class="trust-badge">
+              <div class="trust-badge-icon">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                </svg>
+              </div>
+              <span>Takes about 2 minutes. No login required.</span>
+            </div>
+            <div class="trust-badge">
+              <div class="trust-badge-icon">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                </svg>
+              </div>
+              <span>A real advisor reviews your profile — not an algorithm.</span>
+            </div>
+          </div>
+        </div>
+
+        <p class="matcher-privacy-note">
+          By completing this assessment, you agree that Niche Global may store and use your information to evaluate suitable international career pathways. We do not sell or share your data. Privacy Policy applies.
+        </p>
+      </aside>
+
+      <!-- ===== RIGHT PANEL (Stepper) ===== -->
+      <main class="matcher-right">
+
+        <!-- Progress Dots -->
+        <div class="pm-progress-track" id="pm-progress" aria-label="Assessment progress">
+          <div class="pm-step-dot active" id="pd-1">1</div>
+          <div class="pm-step-line" id="pl-1"></div>
+          <div class="pm-step-dot" id="pd-2">2</div>
+          <div class="pm-step-line" id="pl-2"></div>
+          <div class="pm-step-dot" id="pd-3">3</div>
+          <div class="pm-step-line" id="pl-3"></div>
+          <div class="pm-step-dot" id="pd-4">4</div>
+          <div class="pm-step-line" id="pl-4"></div>
+          <div class="pm-step-dot" id="pd-5">5</div>
+          <div class="pm-step-line" id="pl-5"></div>
+          <div class="pm-step-dot" id="pd-6">
+            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+          </div>
+        </div>
+
+        <!-- Summary chips (show previous answers) -->
+        <div class="pm-summary-bar" id="pm-summary"></div>
+
+        <!-- ===== STEP 1: Qualification ===== -->
+        <div class="pm-step active" id="pm-step-1">
+          <div class="pm-step-meta">Question 1 of 5</div>
+          <h2>What is your highest qualification?</h2>
+          <p class="pm-hint">Tap to select. This helps us understand which credential pathways are realistic for you.</p>
+          <div class="pm-options-grid">
+            <div class="pm-option-card" onclick="pmSelect(1, 'Qualification', 'Plus Two', this)">
+              <div class="pm-option-icon">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+              </div>
+              <span class="pm-option-label">Plus Two</span>
+              <span class="pm-option-sublabel">Higher Secondary</span>
+            </div>
+            <div class="pm-option-card" onclick="pmSelect(1, 'Qualification', 'Diploma', this)">
+              <div class="pm-option-icon">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+              </div>
+              <span class="pm-option-label">Diploma</span>
+              <span class="pm-option-sublabel">Technical / Vocational</span>
+            </div>
+            <div class="pm-option-card" onclick="pmSelect(1, 'Qualification', 'Bachelor\'s', this)">
+              <div class="pm-option-icon">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+              </div>
+              <span class="pm-option-label">Bachelor's</span>
+              <span class="pm-option-sublabel">Undergraduate Degree</span>
+            </div>
+            <div class="pm-option-card" onclick="pmSelect(1, 'Qualification', 'Master\'s', this)">
+              <div class="pm-option-icon">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2l9 4.5L12 11 3 6.5z"/><path d="M3 6.5v6l9 4.5 9-4.5v-6"/></svg>
+              </div>
+              <span class="pm-option-label">Master's</span>
+              <span class="pm-option-sublabel">Postgraduate Degree</span>
+            </div>
+            <div class="pm-option-card open-option" onclick="pmSelect(1, 'Qualification', 'Other', this)">
+              <div class="pm-option-icon">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              </div>
+              <span class="pm-option-label">Other</span>
+              <span class="pm-option-sublabel">Professional / Other</span>
+            </div>
+          </div>
+          <div class="pm-nav">
+            <a href="faq.html" class="pm-talk-link">Not ready? Read our FAQ →</a>
+          </div>
+        </div>
+
+        <!-- ===== STEP 2: Career Stage ===== -->
+        <div class="pm-step" id="pm-step-2">
+          <div class="pm-step-meta">Question 2 of 5</div>
+          <h2>Where are you in your career journey?</h2>
+          <p class="pm-hint">This determines which employer and pathway types are appropriate for your profile.</p>
+          <div class="pm-options-grid">
+            <div class="pm-option-card" onclick="pmSelect(2, 'Experience', 'Student / Fresher', this)">
+              <div class="pm-option-icon">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/></svg>
+              </div>
+              <span class="pm-option-label">Student / Fresher</span>
+              <span class="pm-option-sublabel">No work experience yet</span>
+            </div>
+            <div class="pm-option-card" onclick="pmSelect(2, 'Experience', '1–3 Years', this)">
+              <div class="pm-option-icon">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+              </div>
+              <span class="pm-option-label">1–3 Years</span>
+              <span class="pm-option-sublabel">Early career</span>
+            </div>
+            <div class="pm-option-card" onclick="pmSelect(2, 'Experience', '3–7 Years', this)">
+              <div class="pm-option-icon">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              </div>
+              <span class="pm-option-label">3–7 Years</span>
+              <span class="pm-option-sublabel">Mid career</span>
+            </div>
+            <div class="pm-option-card" onclick="pmSelect(2, 'Experience', '7+ Years', this)">
+              <div class="pm-option-icon">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 20v-6M6 20V10M18 20V4"/></svg>
+              </div>
+              <span class="pm-option-label">7+ Years</span>
+              <span class="pm-option-sublabel">Senior professional</span>
+            </div>
+            <div class="pm-option-card open-option" onclick="pmSelect(2, 'Experience', 'Not Sure', this)">
+              <div class="pm-option-icon">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+              </div>
+              <span class="pm-option-label">Not Sure</span>
+              <span class="pm-option-sublabel">Help me figure it out</span>
+            </div>
+          </div>
+          <div class="pm-nav">
+            <button class="pm-back-btn" onclick="pmBack(1)">
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+              Back
+            </button>
+            <a href="mailto:hello@nicheglobal.com" class="pm-talk-link">Prefer to talk? Email us →</a>
+          </div>
+        </div>
+
+        <!-- ===== STEP 3: Field / Career Area ===== -->
+        <div class="pm-step" id="pm-step-3">
+          <div class="pm-step-meta">Question 3 of 5</div>
+          <h2>What is your field or career area?</h2>
+          <p class="pm-hint">We use this to match you with the right employer networks and pathway types.</p>
+          <div class="pm-options-grid">
+            <div class="pm-option-card" onclick="pmSelect(3, 'Field', 'Technology', this)">
+              <div class="pm-option-icon">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+              </div>
+              <span class="pm-option-label">Technology</span>
+              <span class="pm-option-sublabel">Software, IT, Data</span>
+            </div>
+            <div class="pm-option-card" onclick="pmSelect(3, 'Field', 'Healthcare', this)">
+              <div class="pm-option-icon">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+              </div>
+              <span class="pm-option-label">Healthcare</span>
+              <span class="pm-option-sublabel">Nursing, Medicine, Allied</span>
+            </div>
+            <div class="pm-option-card" onclick="pmSelect(3, 'Field', 'Hospitality', this)">
+              <div class="pm-option-icon">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              </div>
+              <span class="pm-option-label">Hospitality</span>
+              <span class="pm-option-sublabel">Hotels, F&amp;B, Tourism</span>
+            </div>
+            <div class="pm-option-card" onclick="pmSelect(3, 'Field', 'Engineering', this)">
+              <div class="pm-option-icon">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93l-1.41 1.41M4.93 4.93l1.41 1.41M4.93 19.07l1.41-1.41M19.07 19.07l-1.41-1.41M1 12h2M21 12h2M12 1v2M12 21v2"/></svg>
+              </div>
+              <span class="pm-option-label">Engineering</span>
+              <span class="pm-option-sublabel">Civil, Mechanical, Electrical</span>
+            </div>
+            <div class="pm-option-card" onclick="pmSelect(3, 'Field', 'Business / Finance', this)">
+              <div class="pm-option-icon">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              </div>
+              <span class="pm-option-label">Business / Finance</span>
+              <span class="pm-option-sublabel">Management, Accounting</span>
+            </div>
+            <div class="pm-option-card open-option" onclick="pmSelect(3, 'Field', 'Other', this)">
+              <div class="pm-option-icon">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              </div>
+              <span class="pm-option-label">Other Field</span>
+              <span class="pm-option-sublabel">Tell us in the next step</span>
+            </div>
+          </div>
+          <div class="pm-nav">
+            <button class="pm-back-btn" onclick="pmBack(2)">
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+              Back
+            </button>
+            <a href="mailto:hello@nicheglobal.com" class="pm-talk-link">Prefer to talk? Email us →</a>
+          </div>
+        </div>
+
+        <!-- ===== STEP 4: Objective ===== -->
+        <div class="pm-step" id="pm-step-4">
+          <div class="pm-step-meta">Question 4 of 5</div>
+          <h2>What are you trying to achieve?</h2>
+          <p class="pm-hint">Understanding your objective helps us suggest the most suitable pathway type.</p>
+          <div class="pm-options-grid cols-2">
+            <div class="pm-option-card" onclick="pmSelect(4, 'Objective', 'Work Abroad', this)">
+              <div class="pm-option-icon">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              </div>
+              <span class="pm-option-label">Work Abroad</span>
+              <span class="pm-option-sublabel">Get a job in another country</span>
+            </div>
+            <div class="pm-option-card" onclick="pmSelect(4, 'Objective', 'Build an International Career', this)">
+              <div class="pm-option-icon">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 20v-6M6 20V10M18 20V4"/></svg>
+              </div>
+              <span class="pm-option-label">Build an International Career</span>
+              <span class="pm-option-sublabel">Long-term global career plan</span>
+            </div>
+            <div class="pm-option-card" onclick="pmSelect(4, 'Objective', 'International Experience', this)">
+              <div class="pm-option-icon">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </div>
+              <span class="pm-option-label">International Experience</span>
+              <span class="pm-option-sublabel">Internship or short program</span>
+            </div>
+            <div class="pm-option-card" onclick="pmSelect(4, 'Objective', 'Career Change', this)">
+              <div class="pm-option-icon">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
+              </div>
+              <span class="pm-option-label">Career Change</span>
+              <span class="pm-option-sublabel">Transition to a new field</span>
+            </div>
+            <div class="pm-option-card open-option" onclick="pmSelect(4, 'Objective', 'Not Sure Yet', this)">
+              <div class="pm-option-icon">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+              </div>
+              <span class="pm-option-label">Not Sure Yet</span>
+              <span class="pm-option-sublabel">Still exploring options</span>
+            </div>
+          </div>
+          <div class="pm-nav">
+            <button class="pm-back-btn" onclick="pmBack(3)">
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+              Back
+            </button>
+            <a href="mailto:hello@nicheglobal.com" class="pm-talk-link">Prefer to talk? Email us →</a>
+          </div>
+        </div>
+
+        <!-- ===== STEP 5: Destination Preference ===== -->
+        <div class="pm-step" id="pm-step-5">
+          <div class="pm-step-meta">Question 5 of 5</div>
+          <h2>Do you have a destination preference?</h2>
+          <p class="pm-hint">You don't have to pick a country now. "I'm Open" is a completely valid answer — and often leads to the best outcomes.</p>
+          <div class="pm-options-grid">
+            <div class="pm-option-card pm-dest-card" onclick="pmSelect(5, 'Destination', 'United Kingdom', this)">
+              <span class="pm-dest-flag">🇬🇧</span>
+              <div>
+                <span class="pm-option-label">United Kingdom</span>
+                <span class="pm-option-sublabel" style="display:block;">Healthcare, Tech, Finance</span>
+              </div>
+            </div>
+            <div class="pm-option-card pm-dest-card" onclick="pmSelect(5, 'Destination', 'Canada', this)">
+              <span class="pm-dest-flag">🇨🇦</span>
+              <div>
+                <span class="pm-option-label">Canada</span>
+                <span class="pm-option-sublabel" style="display:block;">Technology, Engineering</span>
+              </div>
+            </div>
+            <div class="pm-option-card pm-dest-card" onclick="pmSelect(5, 'Destination', 'Australia', this)">
+              <span class="pm-dest-flag">🇦🇺</span>
+              <div>
+                <span class="pm-option-label">Australia</span>
+                <span class="pm-option-sublabel" style="display:block;">Healthcare, Hospitality</span>
+              </div>
+            </div>
+            <div class="pm-option-card pm-dest-card" onclick="pmSelect(5, 'Destination', 'Germany', this)">
+              <span class="pm-dest-flag">🇩🇪</span>
+              <div>
+                <span class="pm-option-label">Germany</span>
+                <span class="pm-option-sublabel" style="display:block;">Engineering, Manufacturing</span>
+              </div>
+            </div>
+            <div class="pm-option-card pm-dest-card" onclick="pmSelect(5, 'Destination', 'UAE', this)">
+              <span class="pm-dest-flag">🇦🇪</span>
+              <div>
+                <span class="pm-option-label">UAE</span>
+                <span class="pm-option-sublabel" style="display:block;">Hospitality, Finance, Tech</span>
+              </div>
+            </div>
+            <div class="pm-option-card pm-dest-card open-option" onclick="pmSelect(5, 'Destination', 'I\'m Open', this)"
+              style="border-color: rgba(74,107,140,0.35);">
+              <span class="pm-dest-flag">🌍</span>
+              <div>
+                <span class="pm-option-label" style="color: var(--accent-primary);">I'm Open</span>
+                <span class="pm-option-sublabel" style="display:block;">Show me what fits</span>
+              </div>
+            </div>
+          </div>
+          <div class="pm-nav">
+            <button class="pm-back-btn" onclick="pmBack(4)">
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+              Back
+            </button>
+            <a href="mailto:hello@nicheglobal.com" class="pm-talk-link">Prefer to talk? Email us →</a>
+          </div>
+        </div>
+
+        <!-- ===== STEP 6: Lead Form ===== -->
+        <div class="pm-step" id="pm-step-6">
+          <div class="pm-step-meta">Final Step</div>
+          <h2>Almost there — we have a clearer picture now.</h2>
+          <p class="pm-hint">Enter your details so one of our pathway specialists can review your profile and reach out with honest, relevant guidance.</p>
+          <form class="pm-form" id="pm-lead-form" onsubmit="pmSubmit(event)">
+            <div class="pm-form-group">
+              <label for="pm-name">Full Name *</label>
+              <input class="pm-form-input" type="text" id="pm-name" placeholder="e.g. Priya Sharma" required>
+            </div>
+            <div class="pm-form-group">
+              <label for="pm-phone">WhatsApp / Phone *</label>
+              <input class="pm-form-input" type="tel" id="pm-phone" placeholder="+91 98765 43210" required>
+            </div>
+            <div class="pm-form-group">
+              <label for="pm-email">Email Address *</label>
+              <input class="pm-form-input" type="email" id="pm-email" placeholder="you@example.com" required>
+            </div>
+            <div class="pm-consent-row">
+              <input type="checkbox" id="pm-consent" required>
+              <label for="pm-consent">I consent to Niche Global storing and using my details to evaluate suitable international career pathways and contact me regarding my assessment. I understand this is not a guarantee of eligibility or placement.</label>
+            </div>
+            <button type="submit" class="btn btn-primary btn-large" style="width:100%;">Get My Profile Evaluated →</button>
+          </form>
+          <div class="pm-nav">
+            <button class="pm-back-btn" onclick="pmBack(5)">
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+              Back
+            </button>
+          </div>
+        </div>
+
+        <!-- ===== STEP 7: Result / Thank You ===== -->
+        <div class="pm-step" id="pm-step-7">
+          <div class="pm-result">
+            <div class="pm-result-icon">
+              <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
+              </svg>
+            </div>
+            <div class="pm-step-meta">PROFILE SUBMITTED</div>
+            <h2>We've received your profile.</h2>
+            <p>Based on your answers, your profile in <strong id="pm-result-field">your field</strong> may be worth exploring for international pathways to <strong id="pm-result-dest">your chosen region</strong>.</p>
+            <p>One of our pathway specialists will review your details and reach out shortly. Eligibility and suitable routes depend on a full profile evaluation — this assessment is just the beginning of that conversation.</p>
+
+            <div class="pm-result-pills" id="pm-result-chips"></div>
+
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem;">
+              <a href="faq.html" class="btn btn-outline-dark" style="flex:1; text-align:center; min-width:160px;">Read Our FAQ</a>
+              <a href="success-stories.html" class="btn btn-primary" style="flex:1; text-align:center; min-width:160px;">Read Success Stories →</a>
+            </div>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer theme-dark" style="background: var(--bg-dark-secondary);">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <div class="logo footer-logo">
+          <img src="assets/niche-global-logo.png" alt="Niche Global Logo"
+            style="height: 40px; width: auto; object-fit: contain;">
+        </div>
+        <p class="footer-desc">Life Beyond Borders. We help you explore realistic pathways to build a career and a life internationally, starting with your unique profile.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="LinkedIn">
+            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          </a>
+          <a href="#" aria-label="Instagram">
+            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.202 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="about.html">Who We Are</a>
+          <a href="Destinations.html">Destinations</a>
+          <a href="Opportunities.html">Opportunities</a>
+          <a href="partners.html">Partners</a>
+          <a href="faq.html">FAQ</a>
+        </nav>
+      </div>
+      <div class="footer-contact">
+        <h4>Contact Us</h4>
+        <div class="contact-details">
+          <p><strong>Headquarters</strong><br>Kochi, Kerala, India</p>
+          <p><a href="mailto:hello@nicheglobal.com">hello@nicheglobal.com</a><br>
+          <a href="tel:+910000000000">+91 0000 000 000</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="container footer-bottom-bar">
+      <div class="copyright">&copy; 2026 Niche Global. All rights reserved.</div>
+      <div class="legal-links"><a href="#">Privacy Policy</a> <a href="#">Terms of Service</a></div>
+    </div>
+  </footer>
+
+  <button id="backToTopBtn" aria-label="Back to top" class="back-to-top">
+    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+      <path d="M12 19V5M5 12l7-7 7 7"/>
+    </svg>
+  </button>
+
+  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.27/bundled/lenis.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="script.js"></script>
+
+  <script>
+    // ============================================
+    // Profile Matcher Logic
+    // ============================================
+    const pmState = {};
+    const TOTAL_STEPS = 5;
+
+    function pmSelect(currentStep, key, value, el) {
+      // Store answer
+      pmState[key] = value;
+
+      // Visual: mark selected
+      const grid = el.closest('.pm-options-grid');
+      grid.querySelectorAll('.pm-option-card').forEach(c => c.classList.remove('selected'));
+      el.classList.add('selected');
+
+      // Short delay for visual feedback, then advance
+      setTimeout(() => {
+        pmGoTo(currentStep + 1);
+        pmUpdateProgress(currentStep);
+        pmUpdateSummary();
+      }, 280);
+    }
+
+    function pmBack(targetStep) {
+      pmGoTo(targetStep);
+      pmUpdateProgress(targetStep - 1);
+    }
+
+    function pmGoTo(step) {
+      // Hide all
+      document.querySelectorAll('.pm-step').forEach(s => s.classList.remove('active'));
+      const target = document.getElementById(`pm-step-${step}`);
+      if (target) {
+        target.classList.add('active');
+        // Scroll to top of right panel on mobile
+        target.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    }
+
+    function pmUpdateProgress(completedStep) {
+      for (let i = 1; i <= 6; i++) {
+        const dot = document.getElementById(`pd-${i}`);
+        const line = document.getElementById(`pl-${i}`);
+        if (!dot) continue;
+        if (i <= completedStep) {
+          dot.classList.add('completed');
+          dot.classList.remove('active');
+          if (i <= 5) dot.textContent = '';
+          dot.innerHTML = `<svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>`;
+        } else if (i === completedStep + 1) {
+          dot.classList.remove('completed');
+          dot.classList.add('active');
+          dot.textContent = i <= 5 ? i : '';
+          if (i === 6) dot.innerHTML = `<svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>`;
+        } else {
+          dot.classList.remove('completed', 'active');
+          dot.textContent = i <= 5 ? i : '';
+          if (i === 6) dot.innerHTML = `<svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>`;
+        }
+        if (line) {
+          if (i <= completedStep) {
+            line.classList.add('completed');
+          } else {
+            line.classList.remove('completed');
+          }
+        }
+      }
+    }
+
+    function pmUpdateSummary() {
+      const bar = document.getElementById('pm-summary');
+      bar.innerHTML = '';
+      const labels = {
+        Qualification: '🎓',
+        Experience: '💼',
+        Field: '🔬',
+        Objective: '🎯',
+        Destination: '🌍'
+      };
+      Object.entries(pmState).forEach(([key, value]) => {
+        const chip = document.createElement('span');
+        chip.className = 'pm-summary-chip';
+        chip.textContent = `${labels[key] || ''} ${value}`;
+        bar.appendChild(chip);
+      });
+    }
+
+    function pmSubmit(e) {
+      e.preventDefault();
+      pmState.Name  = document.getElementById('pm-name').value;
+      pmState.Phone = document.getElementById('pm-phone').value;
+      pmState.Email = document.getElementById('pm-email').value;
+
+      // Update result screen
+      document.getElementById('pm-result-field').textContent = pmState.Field || 'your field';
+      document.getElementById('pm-result-dest').textContent  = pmState.Destination || 'your chosen region';
+
+      // Result chips
+      const chips = document.getElementById('pm-result-chips');
+      chips.innerHTML = '';
+      ['Qualification','Experience','Field','Objective','Destination'].forEach(k => {
+        if (pmState[k]) {
+          const chip = document.createElement('span');
+          chip.className = 'pm-result-pill';
+          chip.textContent = pmState[k];
+          chips.appendChild(chip);
+        }
+      });
+
+      pmGoTo(7);
+      pmUpdateProgress(6);
+    }
+
+    // Back to top
+    const bttBtn = document.getElementById('backToTopBtn');
+    if (bttBtn) {
+      window.addEventListener('scroll', () => {
+        bttBtn.classList.toggle('show', window.scrollY > 400);
+      }, { passive: true });
+      bttBtn.addEventListener('click', () => {
+        if (typeof lenis !== 'undefined') {
+          lenis.scrollTo(0, { duration: 1.4 });
+        } else {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      });
+    }
+  </script>
+</body>
+</html>
