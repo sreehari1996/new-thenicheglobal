@@ -1,0 +1,311 @@
+/* success-stories.css - Refined Vertical Journey Timeline Layout */
+
+/* Hero */
+.story-hero {
+  position: relative;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 120px 24px 60px;
+  background: var(--bg-dark);
+  overflow: hidden;
+}
+
+.story-hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.story-hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.35) contrast(1.1);
+  transform: scale(1.02);
+}
+
+.story-hero-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, var(--bg-dark) 0%, transparent 50%, var(--bg-dark) 100%);
+}
+
+.story-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.story-hero h1 {
+  font-size: clamp(3.5rem, 6vw, 6rem);
+  font-weight: 300;
+  margin-bottom: 1.5rem;
+  letter-spacing: -1px;
+  line-height: 1.1;
+  color: var(--text-light);
+  font-family: var(--font-heading);
+}
+
+.story-hero p {
+  font-size: 1.35rem;
+  color: rgba(255,255,255,0.7);
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Timeline Journey Section */
+.journey-timeline-section {
+  background: var(--bg-light); /* Clean light gray background */
+  padding: 8rem 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.section-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 6rem;
+}
+
+.timeline-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  padding: 2rem 0;
+}
+
+/* Central Line */
+.timeline-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  background: rgba(0, 33, 71, 0.1); /* Subtle Navy line */
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+/* Timeline Item */
+.timeline-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8rem;
+  position: relative;
+  z-index: 2;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+/* Timeline Node */
+.timeline-node {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 16px;
+  height: 16px;
+  background: var(--accent-primary);
+  border-radius: 50%;
+  z-index: 3;
+  box-shadow: 0 0 0 10px var(--bg-light), 0 0 0 11px rgba(0, 33, 71, 0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.timeline-item:hover .timeline-node {
+  transform: translate(-50%, -50%) scale(1.4);
+  background: var(--bg-dark);
+  box-shadow: 0 0 0 10px var(--bg-light), 0 0 0 12px var(--accent-primary);
+}
+
+/* Timeline Content & Image Blocks */
+.timeline-content {
+  width: 42%;
+  padding: 2rem 0;
+}
+
+.timeline-image {
+  width: 42%;
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  aspect-ratio: 4/3;
+  transition: transform 0.6s ease, box-shadow 0.6s ease;
+}
+
+.timeline-item:hover .timeline-image {
+  transform: translateY(-10px);
+  box-shadow: 0 30px 50px rgba(0, 0, 0, 0.15);
+}
+
+.timeline-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.timeline-item:hover .timeline-image img {
+  transform: scale(1.06);
+}
+
+/* Alternate Layout for Even Items */
+.timeline-item:nth-child(even) .timeline-content {
+  order: 2;
+}
+
+.timeline-item:nth-child(even) .timeline-image {
+  order: 1;
+}
+
+/* Typography & Details */
+.timeline-badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--accent-primary);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  display: inline-block;
+  margin-bottom: 1.5rem;
+}
+
+.timeline-badge::after {
+  content: '';
+  display: block;
+  width: 30px;
+  height: 1px;
+  background: var(--accent-primary);
+  margin-top: 8px;
+}
+
+.timeline-name {
+  font-family: var(--font-heading);
+  font-size: 3.5rem;
+  color: var(--bg-dark);
+  font-weight: 300;
+  margin-bottom: 0.5rem;
+  letter-spacing: -1px;
+}
+
+.timeline-role {
+  font-size: 1.15rem;
+  color: var(--accent-secondary);
+  margin-bottom: 2rem;
+  font-weight: 500;
+}
+
+.timeline-desc {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: var(--text-dark-muted);
+  margin-bottom: 2.5rem;
+}
+
+.timeline-quote {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  font-style: italic;
+  color: var(--bg-dark);
+  border-left: 2px solid var(--accent-primary);
+  padding-left: 1.5rem;
+  line-height: 1.6;
+}
+
+/* Mobile Responsive */
+@media (max-width: 992px) {
+  .timeline-container::before {
+    left: 24px;
+    transform: none;
+  }
+  .timeline-item {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 70px;
+    margin-bottom: 6rem;
+  }
+  .timeline-node {
+    left: 24px;
+    top: 0;
+    transform: translate(-50%, 0);
+  }
+  .timeline-item:hover .timeline-node {
+    transform: translate(-50%, 0) scale(1.4);
+  }
+  .timeline-content, .timeline-image {
+    width: 100%;
+    order: 0 !important;
+  }
+  .timeline-image {
+    margin-bottom: 2rem;
+  }
+  .timeline-name {
+    font-size: 2.5rem;
+  }
+}
+
+/* Related Section (Theme Light) */
+.related-section {
+  padding: 6rem 0 10rem;
+  background: var(--bg-white);
+  border-top: 1px solid var(--border-light);
+}
+
+.related-links-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.related-link-card {
+  display: block;
+  padding: 3rem 2rem;
+  border-radius: var(--radius-md);
+  background: var(--bg-light);
+  border: 1px solid var(--border-light);
+  text-decoration: none;
+  transition: all var(--transition);
+  text-align: center;
+  color: var(--text-dark);
+}
+
+.related-link-card:hover {
+  background: var(--bg-dark);
+  color: var(--text-light);
+  border-color: var(--bg-dark);
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.related-link-card:hover h3, .related-link-card:hover p {
+  color: var(--text-light);
+}
+
+.related-icon {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 1.5rem;
+  background: rgba(74, 107, 140, 0.1);
+  color: var(--accent-primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition);
+}
+
+.related-link-card:hover .related-icon {
+  background: rgba(255,255,255,0.1);
+  color: var(--text-light);
+}
