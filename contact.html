@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | Niche Global</title>
+  <meta name="description"
+    content="Talk to Niche Global. Get in touch with our team to start exploring realistic pathways to build a career and a life internationally.">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/contact.css">
+</head>
+
+<body>
+  <!-- Preloader -->
+  <div id="preloader">
+    <div class="preloader-glass">
+      <div class="preloader-brand">
+        <img src="assets/niche-global-logo.png" alt="Niche Global"
+          style="height: 60px; width: auto; object-fit: contain;">
+      </div>
+      <div class="preloader-line">
+        <div class="preloader-line-inner"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-nav">
+      <div class="logo" style="display:flex; align-items:center;">
+        <img src="assets/niche-global-logo.png" alt="Niche Global Logo"
+          style="height: 40px; width: auto; object-fit: contain;">
+      </div>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="Destinations.html">Destinations</a>
+        <a href="Opportunities.html">Opportunities</a>
+        <a href="partners.html">Partners</a>
+        <a href="index.html#how-it-works">How it Works</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html" class="btn btn-outline-light"
+          style="padding: 0.5rem 1.5rem; text-transform:none; border-radius: var(--radius-full);">Get Started</a>
+      </nav>
+      <button class="mobile-menu-btn" aria-label="Toggle Menu"
+        style="display: none; background: transparent; border: none; color: inherit; cursor: pointer; z-index: 101;">
+        <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round" viewBox="0 0 24 24">
+          <path d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="contact-hero">
+    <!-- Premium Perspective Grid (Copied from FAQ Page) -->
+    <div class="contact-hero-bg">
+      <svg class="contact-shapes-svg" viewBox="0 0 1440 640" preserveAspectRatio="xMidYMid slice"
+        xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+          <!-- Deep ambient glow for the background -->
+          <radialGradient id="meshGlow" cx="50%" cy="50%" r="70%">
+            <stop offset="0%" stop-color="rgba(74,107,140,0.3)" />
+            <stop offset="100%" stop-color="rgba(74,107,140,0)" />
+          </radialGradient>
+
+          <!-- Infinitely repeating highly detailed isometric blueprint grid -->
+          <pattern id="premiumGrid" width="80" height="80" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+            <!-- Main Cell Borders -->
+            <rect width="80" height="80" fill="none" stroke="rgba(92,122,153,0.15)" stroke-width="1" />
+            <!-- Inner Subdivisions for intricate texture -->
+            <line x1="40" y1="0" x2="40" y2="80" stroke="rgba(92,122,153,0.06)" stroke-width="1" />
+            <line x1="0" y1="40" x2="80" y2="40" stroke="rgba(92,122,153,0.06)" stroke-width="1" />
+            <!-- Glowing Accent Nodes at grid intersections -->
+            <circle cx="0" cy="0" r="2.5" fill="rgba(43,192,228,0.4)" />
+          </pattern>
+        </defs>
+
+        <!-- Background Glow Layer -->
+        <rect width="100%" height="100%" fill="url(#meshGlow)" />
+
+        <!-- The Pattern filling the ENTIRE section edge-to-edge -->
+        <rect width="100%" height="100%" fill="url(#premiumGrid)" />
+      </svg>
+      <div class="contact-hero-vignette"></div>
+    </div>
+
+    <div class="container">
+      <span class="label"
+        style="color: var(--accent-primary); border: none; font-size: 0.85rem; letter-spacing: 2px;">CONTACT US</span>
+      <h1>Start Your Journey</h1>
+      <p>Your profile comes first. Let's explore your global pathways together.</p>
+    </div>
+  </section>
+
+  <!-- Minimalist Premium Section -->
+  <section class="premium-contact-minimal">
+    <div class="minimal-layout-grid">
+
+      <!-- Left Typography Column -->
+      <div class="text-column">
+        <span class="label">Reach Out</span>
+        <h2 class="huge-text">Let's build your<br>global career.</h2>
+
+        <div class="contact-blocks">
+          <div class="contact-block">
+            <h5>Headquarters</h5>
+            <p>Vismaya Building, Infopark Phase 1<br>Kakkanad, Kochi, Kerala, India</p>
+          </div>
+
+          <div class="contact-block">
+            <h5>Email Us</h5>
+            <p><a href="mailto:hello@nicheglobal.com">hello@nicheglobal.com</a></p>
+          </div>
+
+          <div class="contact-block">
+            <h5>Call Us</h5>
+            <p><a href="tel:+910000000000">+91 0000 000 000</a></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Form Column -->
+      <div class="form-column">
+        <h3>Request a Callback</h3>
+        <p>Provide your details below, and one of our advisors will reach out.</p>
+
+        <form id="contactForm" class="premium-floating-form" onsubmit="event.preventDefault(); document.getElementById('successMsg').style.display='block';">
+          
+          <div class="floating-group">
+            <input type="text" id="fullName" class="floating-input" placeholder=" " required>
+            <label for="fullName" class="floating-label">Full Name <span>*</span></label>
+          </div>
+          
+          <div class="form-row">
+            <div class="floating-group">
+              <input type="tel" id="phone" class="floating-input" placeholder=" " required>
+              <label for="phone" class="floating-label">Phone / WhatsApp <span>*</span></label>
+            </div>
+            
+            <div class="floating-group">
+              <input type="email" id="email" class="floating-input" placeholder=" ">
+              <label for="email" class="floating-label">Email Address</label>
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="floating-group">
+              <select id="qualification" class="floating-select" required>
+                <option value="" disabled selected></option>
+                <option value="plus-two">Plus Two</option>
+                <option value="diploma">Diploma</option>
+                <option value="bachelors">Bachelor's Degree</option>
+                <option value="masters">Master's Degree</option>
+                <option value="other">Other</option>
+              </select>
+              <label for="qualification" class="floating-label select-label">Qualification <span>*</span></label>
+            </div>
+            
+            <div class="floating-group">
+              <select id="careerStatus" class="floating-select" required>
+                <option value="" disabled selected></option>
+                <option value="student">Student</option>
+                <option value="fresher">Fresher</option>
+                <option value="1-3">1–3 Years Experience</option>
+                <option value="3-7">3–7 Years Experience</option>
+                <option value="7+">7+ Years Experience</option>
+              </select>
+              <label for="careerStatus" class="floating-label select-label">Career Status <span>*</span></label>
+            </div>
+          </div>
+          
+          <div class="floating-group">
+            <select id="country" class="floating-select" required>
+              <option value="" disabled selected></option>
+              <option value="usa">USA</option>
+              <option value="uk">UK</option>
+              <option value="australia">Australia</option>
+              <option value="france">France</option>
+              <option value="south-korea">South Korea</option>
+              <option value="not-sure">I'm Not Sure Yet</option>
+            </select>
+            <label for="country" class="floating-label select-label">Interested Destination <span>*</span></label>
+          </div>
+          
+          <div class="floating-group">
+            <textarea id="message" class="floating-input floating-textarea" placeholder=" "></textarea>
+            <label for="message" class="floating-label">How can we help you? (Optional)</label>
+          </div>
+          
+          <div class="consent-box">
+            <input type="checkbox" id="consent" required>
+            <label for="consent">
+              I agree to the <a href="#">Privacy Policy</a> and <a href="#">Terms of Service</a>.
+            </label>
+          </div>
+          
+          <button type="submit" class="btn btn-editorial-submit"><span>Submit Request</span></button>
+          
+          <div id="successMsg" class="success-message">
+            Thank you! Your details have been securely submitted. Our team will contact you shortly.
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer theme-dark">
+    <div class="container footer-grid">
+
+      <!-- Brand Column -->
+      <div class="footer-brand">
+        <div class="logo footer-logo">
+          <img src="assets/niche-global-logo.png" alt="Niche Global Logo"
+            style="height: 40px; width: auto; object-fit: contain;">
+        </div>
+        <p class="footer-desc">
+          Life Beyond Borders. We help you explore realistic pathways to build a career and a life internationally,
+          starting with your unique profile.
+        </p>
+        <div class="footer-socials">
+          <a href="#" aria-label="LinkedIn"><svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+            </svg></a>
+          <a href="#" aria-label="Instagram"><svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M12 2.163c3.202 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+            </svg></a>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="about.html">Who We Are</a>
+          <a href="Destinations.html">Destinations</a>
+          <a href="Opportunities.html">Opportunities</a>
+          <a href="profile-matcher.html">Find Your Fit</a>
+        </nav>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="footer-contact">
+        <h4>Contact Us</h4>
+        <div class="contact-details">
+          <p>
+            <strong>Headquarters</strong><br>
+            Kochi, Kerala, India
+          </p>
+          <p>
+            <a href="mailto:hello@nicheglobal.com">hello@nicheglobal.com</a><br>
+            <a href="tel:+910000000000">+91 0000 000 000</a>
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Copyright Bar -->
+    <div class="container footer-bottom-bar">
+      <div class="copyright">
+        &copy; 2026 Niche Global. All rights reserved.
+      </div>
+      <div class="legal-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button id="backToTopBtn" aria-label="Back to top" class="back-to-top">
+    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+      stroke-linejoin="round" viewBox="0 0 24 24">
+      <path d="M12 19V5M5 12l7-7 7 7" />
+    </svg>
+  </button>
+
+  <!-- Lenis Smooth Scroll -->
+  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.27/bundled/lenis.min.js"></script>
+
+  <!-- GSAP Core & ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

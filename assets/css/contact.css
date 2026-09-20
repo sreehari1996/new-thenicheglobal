@@ -1,0 +1,455 @@
+/* =========================================
+   Contact Page - Minimalist Premium Layout
+   ========================================= */
+
+/* Hero Section */
+.contact-hero {
+  padding: 160px 24px 100px;
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Premium Perspective Grid (Copied from FAQ Page) */
+.contact-hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(150deg, #001020 0%, #001a3a 45%, #002147 100%);
+}
+
+.contact-shapes-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.contact-hero-vignette {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom,
+      rgba(0, 16, 32, 0.85) 0%,
+      rgba(0, 16, 32, 0.4) 30%,
+      rgba(0, 21, 48, 0.1) 60%,
+      rgba(0, 16, 32, 0.6) 100%);
+  pointer-events: none;
+}
+
+.contact-hero .container {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.contact-hero h1 {
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+.contact-hero p {
+  font-size: 1.25rem;
+  color: var(--text-light-muted);
+}
+
+/* Main Minimalist Section */
+.premium-contact-minimal {
+  padding: 120px 24px;
+  background-color: var(--bg-light);
+}
+
+.minimal-layout-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 6rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: flex-start;
+}
+
+/* Left Typography Column */
+.text-column {
+  position: sticky;
+  top: 120px;
+}
+
+.text-column .label {
+  color: var(--accent-primary);
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+.text-column .huge-text {
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-family: var(--font-heading);
+  color: var(--bg-dark);
+  line-height: 1.1;
+  margin-bottom: 3rem;
+  letter-spacing: -1px;
+}
+
+.contact-master-card {
+  display: flex;
+  flex-direction: row;
+  max-width: 1200px;
+  width: 100%;
+  background: var(--bg-white);
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.contact-blocks {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.contact-block {
+  position: relative;
+  padding-left: 2rem;
+  border-left: 2px solid rgba(74, 107, 140, 0.2);
+  transition: border-color 0.3s ease;
+}
+
+.contact-block:hover {
+  border-left-color: var(--accent-primary);
+}
+
+.contact-block h5 {
+  font-size: 1.1rem;
+  color: var(--bg-dark);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.contact-block p {
+  color: var(--text-dark-muted);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.contact-block a {
+  color: var(--text-dark-muted);
+  transition: color 0.3s;
+}
+
+.contact-block a:hover {
+  color: var(--accent-primary);
+}
+
+/* Right Form Column */
+.form-column {
+  background: var(--bg-white);
+  padding: 4rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.form-column h3 {
+  font-size: 1.8rem;
+  color: var(--accent-primary);
+  margin-bottom: 0.5rem;
+  font-family: var(--font-heading);
+  font-weight: 500;
+}
+
+.form-column>p {
+  color: var(--accent-secondary);
+  margin-bottom: 3rem;
+  font-size: 1.05rem;
+}
+
+/* Floating Label Premium Form */
+.premium-floating-form {
+  margin-top: 1rem;
+}
+
+.floating-group {
+  position: relative;
+  margin-bottom: 2.5rem;
+}
+
+.floating-input,
+.floating-select {
+  width: 100%;
+  padding: 1rem 0 0.5rem;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  color: var(--text-dark);
+  outline: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 0;
+}
+
+/* Floating Label Logic */
+.floating-label {
+  position: absolute;
+  top: 1rem;
+  left: 0;
+  font-size: 1.1rem;
+  color: var(--text-dark-muted);
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-weight: 400;
+}
+
+.floating-label span {
+  color: #e53935;
+}
+
+/* Float up on focus OR when not empty */
+.floating-input:focus ~ .floating-label,
+.floating-input:not(:placeholder-shown) ~ .floating-label,
+.floating-select:focus ~ .floating-label,
+.floating-select:valid ~ .floating-label {
+  top: -1rem;
+  font-size: 0.8rem;
+  color: var(--accent-primary);
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+/* Active Border */
+.floating-input:focus,
+.floating-select:focus {
+  border-bottom: 2px solid var(--accent-primary);
+  padding-bottom: calc(0.5rem - 1px);
+}
+
+/* Select specific styles */
+.floating-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234a6b8c' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0 center;
+  background-size: 1.2rem;
+  cursor: pointer;
+}
+
+/* Select fields don't have :placeholder-shown, we use :valid hack by requiring them to not be empty string */
+.floating-select:invalid ~ .select-label {
+  /* Default state */
+  top: 1rem;
+  font-size: 1.1rem;
+  color: var(--text-dark-muted);
+  font-weight: 400;
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+.floating-select:focus ~ .select-label,
+.floating-select:valid ~ .select-label {
+  /* Floated state */
+  top: -1rem;
+  font-size: 0.8rem;
+  color: var(--accent-primary);
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.floating-textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+/* Consent Area */
+.consent-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin: 3.5rem 0 2rem;
+}
+
+.consent-box input[type="checkbox"] {
+  margin-top: 0.25rem;
+  width: 20px;
+  height: 20px;
+  accent-color: var(--accent-primary);
+  cursor: pointer;
+}
+
+.consent-box label {
+  font-size: 0.95rem;
+  color: var(--text-dark-muted);
+  line-height: 1.5;
+  margin: 0;
+  font-weight: 400;
+}
+
+.consent-box a {
+  color: var(--bg-dark);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 2px solid var(--accent-primary);
+  transition: all 0.3s;
+}
+
+.consent-box a:hover {
+  color: var(--accent-primary);
+}
+
+/* Ultra-Premium Submit Button */
+.btn-editorial-submit {
+  width: 100%;
+  background: var(--accent-primary);
+  color: var(--text-light);
+  border: none;
+  padding: 1.25rem;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-full);
+}
+
+.btn-editorial-submit::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--bg-dark);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1;
+}
+
+.btn-editorial-submit:hover::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.btn-editorial-submit span {
+  position: relative;
+  z-index: 2;
+}
+
+.success-message {
+  display: none;
+  background: rgba(46, 125, 50, 0.05);
+  color: #2e7d32;
+  padding: 1.25rem;
+  border-left: 4px solid #2e7d32;
+  margin-top: 2rem;
+  font-weight: 500;
+  text-align: left;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .minimal-layout-grid {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+
+  .text-column {
+    position: static;
+  }
+
+  .text-column .huge-text {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .contact-blocks {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+
+  .contact-block {
+    flex: 1 1 calc(50% - 1rem);
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-hero {
+    padding: 120px 20px 80px;
+    min-height: 50vh;
+  }
+
+  .contact-hero h1 {
+    font-size: clamp(2.2rem, 8vw, 3rem);
+  }
+
+  .contact-hero p {
+    font-size: 1.1rem;
+    padding: 0 1rem;
+  }
+
+  .premium-contact-minimal {
+    padding: 80px 20px;
+  }
+
+  .form-column {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .contact-blocks {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .contact-block {
+    flex: 1 1 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .text-column .huge-text {
+    font-size: 2rem;
+  }
+
+  .form-column {
+    padding: 2rem 1.25rem;
+  }
+
+  .consent-box {
+    padding: 1.25rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .consent-box input[type="checkbox"] {
+    margin-top: 0;
+  }
+}
