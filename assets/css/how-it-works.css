@@ -1,0 +1,474 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap');
+
+/* assets/css/how-it-works.css - Exact Mirror Layout */
+
+:root {
+  --hm-dark: #0f172a;
+  --hm-primary: #e8294c;
+  --hm-primary-light: rgba(232, 41, 76, 0.08);
+  --hm-bg-light: #f8f9fa;
+  --hm-text-dark: #1e293b;
+  --hm-text-light: #64748b;
+  --hm-border: #e2e8f0;
+}
+
+/* Base utility */
+.hm-section {
+  padding: 80px 5%;
+}
+.hm-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+.hm-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--hm-primary);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 1.5rem;
+}
+.hm-label::before {
+  content: '';
+  width: 30px;
+  height: 2px;
+  background: var(--hm-primary);
+}
+
+.hm-title {
+  font-family: var(--font-heading, inherit);
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--hm-text-dark);
+  font-weight: 300;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.hm-desc {
+  font-size: 1.1rem;
+  color: var(--hm-text-light);
+  line-height: 1.6;
+  max-width: 600px;
+}
+
+.hm-btn-primary {
+  background: var(--hm-primary);
+  color: #fff;
+  padding: 0.8rem 2rem;
+  border-radius: 100px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s;
+  border: none;
+  cursor: pointer;
+}
+.hm-btn-primary:hover {
+  background: #c01b3b;
+}
+.hm-btn-dark {
+  background: var(--hm-dark);
+  color: #fff;
+  padding: 0.8rem 2rem;
+  border-radius: 100px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+.hm-btn-dark:hover {
+  background: var(--hm-primary);
+}
+.hm-btn-outline {
+  border: 1px solid var(--hm-primary);
+  color: var(--hm-primary);
+  padding: 0.8rem 2rem;
+  border-radius: 100px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+.hm-btn-outline:hover {
+  background: var(--hm-primary);
+  color: #fff;
+}
+
+/* 1. Hero Section */
+.hm-hero {
+  background-color: var(--hm-dark);
+  position: relative;
+  display: flex;
+  min-height: 90vh;
+  padding-top: 80px; /* Header offset */
+  overflow: hidden;
+}
+.hm-hero-content {
+  flex: 1;
+  padding: 5% 5% 5% 8%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+}
+.hm-hero-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--hm-primary);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 2rem;
+}
+.hm-hero-label::before {
+  content: '';
+  width: 30px;
+  height: 2px;
+  background: var(--hm-primary);
+}
+.hm-hero h1 {
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  color: #fff;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+}
+.hm-hero h1 span {
+  color: var(--hm-primary);
+}
+.hm-hero p {
+  color: rgba(255,255,255,0.8);
+  font-size: 1.15rem;
+  line-height: 1.7;
+  max-width: 550px;
+  margin-bottom: 2.5rem;
+}
+.hm-hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.hm-hero-play {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: opacity 0.3s;
+}
+.hm-hero-play:hover {
+  opacity: 0.8;
+}
+.hm-hero-play .icon-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hm-hero-image {
+  flex: 1.2;
+  position: relative;
+  clip-path: polygon(25% 0, 100% 0, 100% 100%, 0 100%);
+  margin-left: -10%;
+}
+.hm-hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.hm-hero-handwriting {
+  position: absolute;
+  bottom: 15%;
+  right: 10%;
+  font-family: 'Caveat', cursive;
+  color: #fff;
+  font-size: 3rem;
+  transform: rotate(-10deg);
+  text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+  line-height: 1;
+}
+
+/* 2. Methodology */
+.hm-methodology {
+  background: #fff;
+}
+.hm-step-row {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: 3rem;
+}
+.hm-step-card {
+  flex: 1;
+  background: #fff;
+  border: 1px solid var(--hm-border);
+  border-radius: 12px;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+  min-height: 250px;
+  transition: transform 0.3s;
+}
+.hm-step-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+}
+.hm-step-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 1.5rem;
+}
+.hm-step-icon {
+  width: 45px;
+  height: 45px;
+  background: var(--hm-primary-light);
+  color: var(--hm-primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hm-step-num {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--hm-primary);
+}
+.hm-step-card h4 {
+  font-family: var(--font-heading, inherit);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--hm-text-dark);
+  margin-bottom: 0.8rem;
+}
+.hm-step-card p {
+  font-size: 0.95rem;
+  color: var(--hm-text-light);
+  line-height: 1.5;
+}
+.hm-chevron {
+  color: #cbd5e1;
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+
+/* 3. Journey Split */
+.hm-journey {
+  background: #fff;
+}
+.hm-journey-grid {
+  display: flex;
+  align-items: center;
+  gap: 6rem;
+}
+.hm-journey-img-col {
+  flex: 1;
+  position: relative;
+}
+.hm-journey-img-wrapper {
+  position: relative;
+  border-radius: 20px 180px 20px 20px; /* The massive curve from mockup */
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+}
+.hm-journey-img-wrapper img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.hm-journey-badge {
+  position: absolute;
+  bottom: -20px;
+  left: 30px;
+  background: #fff;
+  border-radius: 100px;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+.hm-journey-badge-icon {
+  width: 40px;
+  height: 40px;
+  background: var(--hm-blue-light);
+  color: var(--hm-blue);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hm-journey-badge p {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--hm-text-dark);
+  line-height: 1.2;
+}
+
+.hm-journey-text-col {
+  flex: 1;
+}
+.hm-journey-text-col .hm-title {
+  margin-bottom: 1.5rem;
+}
+.hm-journey-text-col .hm-title span {
+  color: var(--hm-blue);
+  display: block;
+  font-size: 1.2em;
+}
+.hm-journey-text-col .hm-desc {
+  margin-bottom: 2rem;
+}
+
+/* 4. Features Banner */
+.hm-features {
+  background: #f4f8fb;
+  padding: 50px 5%;
+}
+.hm-features-grid {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+.hm-feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+}
+.hm-feature-icon {
+  width: 45px;
+  height: 45px;
+  background: var(--hm-blue-light);
+  color: var(--hm-blue);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.hm-feature-text h4 {
+  font-family: var(--font-heading, inherit);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--hm-text-dark);
+  margin-bottom: 0.3rem;
+}
+.hm-feature-text p {
+  font-size: 0.9rem;
+  color: var(--hm-text-light);
+  line-height: 1.5;
+}
+
+/* 5. Pathways Grid */
+.hm-pathways {
+  background: #fff;
+  padding-bottom: 120px;
+}
+.hm-pathways-grid {
+  display: flex;
+  gap: 4rem;
+}
+.hm-pathways-text {
+  flex: 0 0 300px;
+}
+.hm-pathways-cards {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+.hm-pathway-card {
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid var(--hm-border);
+  overflow: hidden;
+  transition: transform 0.3s;
+  display: block;
+  text-decoration: none;
+}
+.hm-pathway-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+.hm-pathway-img {
+  width: 100%;
+  height: 120px;
+  overflow: hidden;
+}
+.hm-pathway-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+.hm-pathway-card:hover .hm-pathway-img img {
+  transform: scale(1.05);
+}
+.hm-pathway-content {
+  padding: 1rem 1.2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.hm-pathway-content h4 {
+  font-family: var(--font-heading, inherit);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--hm-text-dark);
+}
+.hm-pathway-icon {
+  color: var(--hm-blue);
+  width: 24px;
+  height: 24px;
+  background: var(--hm-blue-light);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Responsiveness */
+@media (max-width: 1100px) {
+  .hm-step-row { flex-wrap: wrap; }
+  .hm-step-card { flex: 1 1 30%; }
+  .hm-chevron { display: none; }
+  .hm-features-grid { grid-template-columns: repeat(2, 1fr); }
+  .hm-pathways-grid { flex-direction: column; }
+  .hm-pathways-text { flex: auto; margin-bottom: 2rem; }
+  .hm-pathways-cards { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .hm-hero { flex-direction: column; clip-path: none; padding-top: 100px;}
+  .hm-hero-image { clip-path: none; margin-left: 0; min-height: 400px; }
+  .hm-hero-handwriting { font-size: 2rem; bottom: 10%; right: 5%; }
+  .hm-journey-grid { flex-direction: column; }
+  .hm-journey-img-wrapper { border-radius: 20px; }
+  .hm-journey-badge { position: relative; bottom: 0; left: 0; margin-top: 20px; justify-content: center; }
+  .hm-step-card { flex: 1 1 100%; }
+  .hm-features-grid { grid-template-columns: 1fr; }
+  .hm-pathways-cards { grid-template-columns: 1fr; }
+}

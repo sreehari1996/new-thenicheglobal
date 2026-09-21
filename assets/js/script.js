@@ -153,6 +153,18 @@ if (mobileMenuBtn && navLinks) {
   });
 }
 
+// Set active state on header navigation links based on current URL
+const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+const headerNavLinks = document.querySelectorAll('.nav-links a:not(.btn)');
+headerNavLinks.forEach(link => {
+  const linkPath = link.getAttribute('href');
+  if (linkPath === currentPath) {
+    link.classList.add('active');
+  } else if (currentPath === '' && linkPath === 'index.html') {
+    link.classList.add('active');
+  }
+});
+
 // Hero Carousel Logic
 let currentSlide = 0;
 const slidesContent = document.querySelectorAll('.hero-content');
