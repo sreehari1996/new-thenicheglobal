@@ -1,0 +1,444 @@
+/* assets/css/usa-design.css - UI Mirror Exact Layout */
+
+:root {
+  --color-primary-dark: #0d1b2a;
+  --color-primary-light: #1b263b;
+  --color-text-dark: #2d3748;
+  --color-text-light: #718096;
+  --color-accent: #003B5C; /* Using a sophisticated deep blue accent */
+  --bg-section-grey: #f9fafb;
+}
+
+/* Typography Overrides */
+.um-label {
+  display: inline-block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--color-text-light);
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-left: 30px;
+}
+.um-label::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 2px;
+  background-color: var(--color-accent);
+}
+
+.um-heading {
+  font-family: var(--font-heading, "Georgia", serif);
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-weight: 300;
+  color: var(--color-text-dark);
+  line-height: 1.15;
+  margin-bottom: 1.5rem;
+}
+
+.um-text {
+  font-size: 1.1rem;
+  color: var(--color-text-light);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+/* Common Section */
+.um-section {
+  padding: 100px 5%;
+  background-color: #fff;
+  position: relative;
+}
+.um-section.bg-grey {
+  background-color: var(--bg-section-grey);
+}
+.um-section.bg-dark {
+  background-color: var(--color-primary-dark);
+  color: #fff;
+}
+.um-section.bg-dark .um-heading,
+.um-section.bg-dark .um-label,
+.um-section.bg-dark .um-text {
+  color: #fff;
+}
+.um-section.bg-dark .um-label::before {
+  background-color: #fff;
+}
+
+/* Flex Layout */
+.um-grid-2 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  align-items: center;
+}
+.um-col {
+  flex: 1;
+  min-width: 300px;
+}
+
+/* Buttons */
+.um-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--color-primary-dark);
+  color: #fff;
+  padding: 0.8rem 1.5rem;
+  border-radius: 100px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+.um-btn:hover {
+  background: var(--color-accent);
+  transform: translateY(-2px);
+}
+
+/* 1. Market Overview Stats */
+.um-overview-stats {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 3rem;
+  justify-content: space-between;
+}
+.um-stat-item {
+  flex: 1;
+  min-width: 120px;
+  max-width: 140px;
+}
+.um-stat-icon {
+  width: 32px;
+  height: 32px;
+  margin-bottom: 1rem;
+  color: #a0aec0;
+}
+.um-stat-value {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--color-text-dark);
+  margin-bottom: 0.25rem;
+}
+.um-stat-title {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-text-dark);
+  margin-bottom: 0.5rem;
+}
+.um-stat-desc {
+  font-size: 0.75rem;
+  color: var(--color-text-light);
+  line-height: 1.4;
+}
+
+/* Complex Image Compositions */
+.um-img-comp {
+  position: relative;
+  width: 100%;
+  height: 500px;
+}
+.um-img-comp-base {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 75%;
+  height: 80%;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+.um-img-comp-overlap {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 40%;
+  height: 70%;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  border: 8px solid #fff;
+  z-index: 2;
+}
+.um-img-comp-left-overlap {
+  position: absolute;
+  bottom: 0;
+  left: 15%;
+  width: 40%;
+  height: 60%;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  border: 8px solid #fff;
+  z-index: 2;
+}
+.um-img-comp-large {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 85%;
+  height: 85%;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+.um-img-comp img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.um-badge {
+  position: absolute;
+  bottom: 10%;
+  left: 60%;
+  transform: translateX(-50%);
+  background: #fff;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  z-index: 3;
+}
+.um-badge-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.um-badge-text h4 {
+  font-size: 1rem;
+  margin: 0 0 0.2rem 0;
+  color: var(--color-text-dark);
+}
+.um-badge-text p {
+  font-size: 0.75rem;
+  color: var(--color-text-light);
+  margin: 0;
+}
+
+/* 2. Key Industries */
+.um-industry-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.um-ind-card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  position: relative;
+  transition: transform 0.3s ease;
+}
+.um-ind-card:hover {
+  transform: translateY(-5px);
+}
+.um-ind-img {
+  height: 120px;
+  width: 100%;
+}
+.um-ind-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.um-ind-icon {
+  position: absolute;
+  top: 100px;
+  left: 1.5rem;
+  width: 40px;
+  height: 40px;
+  background: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  color: var(--color-accent);
+}
+.um-ind-content {
+  padding: 2.5rem 1.5rem 1.5rem;
+}
+.um-ind-content h4 {
+  font-size: 1rem;
+  color: var(--color-text-dark);
+  margin: 0 0 0.5rem 0;
+}
+.um-ind-content p {
+  font-size: 0.8rem;
+  color: var(--color-text-light);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* 3. Features Grid */
+.um-feature-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem 2rem;
+  margin-top: 3rem;
+}
+.um-feature-item {
+  display: flex;
+  gap: 1rem;
+}
+.um-feature-icon {
+  width: 40px;
+  height: 40px;
+  color: var(--color-accent);
+  flex-shrink: 0;
+}
+.um-feature-content h4 {
+  font-size: 1rem;
+  color: var(--color-text-dark);
+  margin: 0 0 0.5rem 0;
+}
+.um-feature-content p {
+  font-size: 0.85rem;
+  color: var(--color-text-light);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* 4. Skills List */
+.um-skills-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+.um-skill-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.um-skill-icon {
+  width: 45px;
+  height: 45px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  flex-shrink: 0;
+}
+.um-skill-content h4 {
+  font-size: 1rem;
+  color: #fff;
+  margin: 0 0 0.3rem 0;
+}
+.um-skill-content p {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.6);
+  margin: 0;
+}
+
+/* 5. Circular CTA Image */
+.um-arch-img {
+  width: 100%;
+  height: 500px;
+  border-top-left-radius: 250px;
+  border-top-right-radius: 250px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+.um-arch-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 1200px) {
+  .um-industry-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 992px) {
+  .um-grid-2 { flex-direction: column; gap: 3rem; }
+  .um-img-comp { order: -1; }
+}
+@media (max-width: 768px) {
+  .um-industry-grid { grid-template-columns: 1fr; }
+  .um-feature-grid, .um-skills-grid { grid-template-columns: 1fr; }
+  .um-img-comp { height: 400px; }
+  .um-arch-img { height: 300px; border-top-left-radius: 150px; border-top-right-radius: 150px; }
+}
+
+/* Inline Hero Styles Extracted from Opportunities.html for the Page Top */
+.opp-hero {
+  position: relative;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 160px 24px 80px;
+  background: var(--bg-dark);
+  overflow: hidden;
+}
+
+.opp-hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.opp-hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.3) contrast(1.2);
+}
+
+.opp-hero-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, var(--bg-dark) 0%, transparent 50%, var(--bg-dark) 100%);
+}
+
+.opp-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.opp-hero h1 {
+  font-size: clamp(3.5rem, 6vw, 6.5rem);
+  font-weight: 300;
+  margin-bottom: 1.5rem;
+  letter-spacing: -2px;
+  line-height: 1;
+  color: #fff;
+}
+
+.opp-hero p {
+  font-size: 1.35rem;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .opp-hero {
+    min-height: 50vh;
+    padding: 140px 24px 40px;
+  }
+
+  .opp-hero h1 {
+    font-size: clamp(3rem, 10vw, 4rem);
+  }
+}

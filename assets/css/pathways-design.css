@@ -1,0 +1,248 @@
+/* pathways-design.css */
+/* Premium Layout for all Pathway Pages */
+
+.pw-hero {
+  position: relative;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  padding: 120px 5% 60px;
+  background: var(--bg-dark);
+  overflow: hidden;
+}
+
+.pw-hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.pw-hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.4;
+}
+
+.pw-hero-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, var(--bg-dark) 0%, rgba(17,17,17,0.8) 50%, transparent 100%);
+}
+
+.pw-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+}
+
+.pw-hero-content .label {
+  display: inline-block;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--accent-primary);
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  padding-bottom: 0.5rem;
+}
+
+.pw-hero-content h1 {
+  font-size: clamp(3rem, 5vw, 5rem);
+  font-weight: 300;
+  color: #fff;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+}
+
+.pw-hero-content p {
+  font-size: 1.25rem;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.6;
+}
+
+/* Sections */
+.pw-section {
+  padding: 100px 5%;
+}
+
+.pw-heading {
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-weight: 300;
+  line-height: 1.2;
+  color: var(--bg-dark);
+  margin-bottom: 3rem;
+}
+
+.bg-grey {
+  background-color: var(--bg-grey);
+}
+
+.bg-dark {
+  background-color: var(--bg-dark);
+  color: #fff;
+}
+
+.bg-dark .pw-heading {
+  color: #fff;
+}
+
+/* Timeline Process */
+.pw-timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.pw-timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 24px;
+  bottom: 0;
+  width: 2px;
+  background: rgba(0,0,0,0.1);
+}
+
+.pw-step {
+  position: relative;
+  padding-left: 80px;
+  margin-bottom: 4rem;
+}
+
+.pw-step:last-child {
+  margin-bottom: 0;
+}
+
+.pw-step-number {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 50px;
+  height: 50px;
+  background: var(--bg-dark);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  font-weight: 600;
+  z-index: 2;
+  box-shadow: 0 0 0 10px #fff;
+}
+
+.bg-grey .pw-step-number {
+  box-shadow: 0 0 0 10px var(--bg-grey);
+}
+
+.pw-step h3 {
+  font-size: 1.75rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  color: var(--bg-dark);
+}
+
+.pw-step p {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+/* Benefits Grid */
+.pw-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.pw-card {
+  background: #fff;
+  padding: 3rem 2rem;
+  border-radius: 24px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.03);
+  transition: transform 0.4s ease;
+}
+
+.pw-card:hover {
+  transform: translateY(-10px);
+}
+
+.pw-card-icon {
+  width: 60px;
+  height: 60px;
+  background: rgba(17,17,17,0.05);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--bg-dark);
+  margin-bottom: 2rem;
+}
+
+.bg-dark .pw-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+.bg-dark .pw-card-icon {
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+}
+
+.pw-card h4 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.pw-card p {
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.bg-dark .pw-card p {
+  color: rgba(255,255,255,0.6);
+}
+
+/* CTA Layout */
+.pw-cta {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.pw-btn {
+  display: inline-block;
+  padding: 1.25rem 2.5rem;
+  background: var(--bg-dark);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 500;
+  font-size: 1.1rem;
+  margin-top: 2rem;
+  transition: all 0.3s ease;
+}
+
+.pw-btn:hover {
+  background: var(--accent-primary);
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .pw-timeline::before {
+    left: 20px;
+  }
+  .pw-step {
+    padding-left: 60px;
+  }
+  .pw-step-number {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+}

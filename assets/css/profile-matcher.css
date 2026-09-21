@@ -498,7 +498,7 @@
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background: var(--accent-primary);
+  background: #e8294c;
   color: #fff;
   border: none;
   cursor: pointer;
@@ -510,7 +510,7 @@
   transform: translateY(20px);
   transition: opacity 0.4s ease, visibility 0.4s ease, transform 0.4s ease;
   z-index: 999;
-  box-shadow: 0 4px 20px rgba(0,33,71,0.25);
+  box-shadow: 0 4px 20px rgba(232, 41, 76, 0.25);
 }
 
 .back-to-top.show {
@@ -520,8 +520,9 @@
 }
 
 .back-to-top:hover {
+  background: #c81d3a;
   transform: translateY(-4px);
-  box-shadow: 0 8px 28px rgba(0,33,71,0.35);
+  box-shadow: 0 8px 28px rgba(232, 41, 76, 0.35);
 }
 
 /* ============================================
