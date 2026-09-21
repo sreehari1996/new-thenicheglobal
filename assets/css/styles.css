@@ -295,7 +295,10 @@ a {
 }
 
 .btn-outline-light:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: #e8294c;
+  color: #fff;
+  border-color: #e8294c;
+  box-shadow: 0 4px 12px rgba(232, 41, 76, 0.2);
 }
 
 .btn-outline-dark {
@@ -305,7 +308,10 @@ a {
 }
 
 .btn-outline-dark:hover {
-  background: rgba(0, 0, 0, 0.05);
+  background: #e8294c;
+  color: #fff;
+  border-color: #e8294c;
+  box-shadow: 0 4px 12px rgba(232, 41, 76, 0.2);
 }
 
 .header {

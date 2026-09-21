@@ -218,7 +218,7 @@
 .pw-btn {
   display: inline-block;
   padding: 1.25rem 2.5rem;
-  background: var(--bg-dark);
+  background: #e8294c;
   color: #fff;
   text-decoration: none;
   border-radius: 50px;
@@ -226,11 +226,14 @@
   font-size: 1.1rem;
   margin-top: 2rem;
   transition: all 0.3s ease;
+  border: 1px solid transparent;
+  box-shadow: 0 4px 12px rgba(232, 41, 76, 0.15);
 }
 
 .pw-btn:hover {
-  background: var(--accent-primary);
+  background: #c81d3a;
   transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(232, 41, 76, 0.25);
 }
 
 @media (max-width: 768px) {

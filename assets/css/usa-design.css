@@ -89,7 +89,7 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  background: var(--color-primary-dark);
+  background: #e8294c;
   color: #fff;
   padding: 0.8rem 1.5rem;
   border-radius: 100px;
@@ -97,10 +97,13 @@
   font-weight: 500;
   font-size: 0.95rem;
   transition: all 0.3s ease;
+  border: 1px solid transparent;
+  box-shadow: 0 4px 12px rgba(232, 41, 76, 0.15);
 }
 .um-btn:hover {
-  background: var(--color-accent);
+  background: #c81d3a;
   transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(232, 41, 76, 0.25);
 }
 
 /* 1. Market Overview Stats */
