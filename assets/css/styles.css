@@ -380,22 +380,16 @@ a {
 
 .nav-links a:not(.btn) {
   position: relative;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  background: transparent;
+  transition: all 0.3s ease;
 }
 
-.nav-links a:not(.btn)::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 2px;
-  bottom: -4px;
-  left: 0;
-  background-color: #e8294c;
-  transition: width 0.3s ease;
-}
-
-.nav-links a:not(.btn):hover::after,
-.nav-links a:not(.btn).active::after {
-  width: 100%;
+.nav-links a:not(.btn):hover,
+.nav-links a:not(.btn).active {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-light);
 }
 
 /* Hero Section */
