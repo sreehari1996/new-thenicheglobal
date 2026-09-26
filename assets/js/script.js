@@ -90,7 +90,7 @@ function nextStep(stepNumber) {
   steps.forEach(step => {
     step.classList.remove('active');
   });
-  
+
   // Show target step
   const targetStep = document.getElementById(`step-${stepNumber}`);
   if (targetStep) {
@@ -104,7 +104,7 @@ function showResult() {
   steps.forEach(step => {
     step.classList.remove('active');
   });
-  
+
   // Show result step
   const resultStep = document.getElementById('step-result');
   if (resultStep) {
@@ -121,7 +121,7 @@ window.addEventListener('scroll', () => {
   const threshold = (heroSection ? heroSection.offsetHeight : window.innerHeight) - 80;
 
   if (window.scrollY > threshold) {
-    header.style.backgroundColor = 'rgba(18, 31, 40, 0.95)';
+    header.style.backgroundColor = '#001630';
     header.style.backdropFilter = 'blur(10px)';
     header.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.3)';
     header.style.padding = '1rem 24px';
@@ -173,13 +173,13 @@ const dots = document.querySelectorAll('.carousel-dot');
 
 function goToSlide(index) {
   if (!slidesContent.length || index === currentSlide) return;
-  
+
   slidesContent[currentSlide].classList.remove('slide-active');
   slidesBg[currentSlide].classList.remove('slide-active');
   dots[currentSlide].classList.remove('active');
-  
+
   currentSlide = index;
-  
+
   slidesContent[currentSlide].classList.add('slide-active');
   slidesBg[currentSlide].classList.add('slide-active');
   dots[currentSlide].classList.add('active');
@@ -187,7 +187,7 @@ function goToSlide(index) {
 
 // Auto-advance
 setInterval(() => {
-  if(slidesContent.length > 0) {
+  if (slidesContent.length > 0) {
     let next = (currentSlide + 1) % slidesContent.length;
     goToSlide(next);
   }
@@ -242,7 +242,7 @@ if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
   );
 
   // Methodology Section Animations (Section 03) - Cinematic Glass Timeline
-  
+
   // Reveal the header
   gsap.fromTo('.gsap-meth-header-new',
     { opacity: 0, y: -30 },
@@ -272,7 +272,7 @@ if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
   const timelineCards = document.querySelectorAll('.gsap-timeline-card');
   timelineCards.forEach((card, i) => {
     // Alternate sides for slide-in effect
-    let startX = i % 2 === 0 ? -50 : 50; 
+    let startX = i % 2 === 0 ? -50 : 50;
     if (i === 4) startX = 0; // Last card is center
 
     gsap.fromTo(card,
@@ -292,7 +292,7 @@ if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
 // Mobile View: Apply GSAP Stagger Animations to Each Section on Scroll
 let mmMobile = gsap.matchMedia();
 mmMobile.add("(max-width: 900px)", () => {
-  
+
   // Hide the first slide (Intro slide) of success stories on mobile view
   const firstStorySlide = document.querySelector('#success-stories .gsap-story-slide:first-child');
   if (firstStorySlide) {
@@ -303,10 +303,10 @@ mmMobile.add("(max-width: 900px)", () => {
   mobileSections.forEach(section => {
     // Skip sections that already have dedicated GSAP timelines handled elsewhere
     if (section.id === 'who-we-are' || section.id === 'methodology' || section.id === 'how-it-works') return;
-    
+
     // Select key content elements to stagger animate (removed .dest-card to give it a custom animation)
     const elementsToAnimate = section.querySelectorAll('h2, h3, p, .subtitle, .btn, .pathway-card, .trust-list li, .collage-img, .partner-logo, .form-input');
-    
+
     if (elementsToAnimate.length > 0) {
       gsap.fromTo(elementsToAnimate,
         { opacity: 0, y: 40 },
@@ -337,21 +337,21 @@ mmMobile.add("(max-width: 900px)", () => {
           toggleActions: 'play none none reverse'
         }
       });
-      
+
       // Card scales and fades up
       destTl.fromTo(card,
         { opacity: 0, y: 60, scale: 0.95 },
         { opacity: 1, y: 0, scale: 1, duration: 0.8, ease: 'power3.out' }
       )
-      // Content inside staggers in
-      .fromTo(card.querySelectorAll('.dest-card-content h3, .dest-card-content p, .dest-card-content a'),
-        { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 0.5, stagger: 0.1, ease: 'power2.out' },
-        "-=0.4"
-      );
+        // Content inside staggers in
+        .fromTo(card.querySelectorAll('.dest-card-content h3, .dest-card-content p, .dest-card-content a'),
+          { opacity: 0, y: 20 },
+          { opacity: 1, y: 0, duration: 0.5, stagger: 0.1, ease: 'power2.out' },
+          "-=0.4"
+        );
     });
   }
-  
+
   // Cleanup function runs when transitioning back to desktop view (> 900px)
   return () => {
     if (firstStorySlide) {
@@ -384,57 +384,57 @@ function updateMatcherProgress(step) {
   });
 }
 
-window.nextMatcherStep = function(nextStepId, key, value) {
+window.nextMatcherStep = function (nextStepId, key, value) {
   if (key && value) {
     matcherState[key] = value;
   }
-  
+
   // Hide all steps
   document.querySelectorAll('.matcher-step').forEach(step => {
     step.style.display = 'none';
   });
-  
+
   // Show next step
   const nextStep = document.getElementById(`matcher-step-${nextStepId}`);
   if (nextStep) {
     nextStep.style.display = 'block';
-    
+
     // Animate in
     gsap.fromTo(nextStep, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" });
   }
-  
+
   updateMatcherProgress(nextStepId > 6 ? 6 : nextStepId);
 };
 
-window.prevMatcherStep = function(prevStepId) {
+window.prevMatcherStep = function (prevStepId) {
   // Hide all steps
   document.querySelectorAll('.matcher-step').forEach(step => {
     step.style.display = 'none';
   });
-  
+
   // Show prev step
   const prevStep = document.getElementById(`matcher-step-${prevStepId}`);
   if (prevStep) {
     prevStep.style.display = 'block';
   }
-  
+
   updateMatcherProgress(prevStepId);
 };
 
-window.submitMatcher = function(event) {
+window.submitMatcher = function (event) {
   event.preventDefault();
-  
+
   // Collect lead details
   matcherState.Name = document.getElementById('m-name').value;
   matcherState.Phone = document.getElementById('m-phone').value;
   matcherState.Email = document.getElementById('m-email').value;
-  
+
   // Update result text dynamically based on selected field
   const resultField = document.getElementById('result-field');
   if (resultField) {
     resultField.textContent = matcherState.Field || 'your chosen field';
   }
-  
+
   // Move to result step
   nextMatcherStep(7);
 };
@@ -466,7 +466,7 @@ if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
   const hjProgress = document.getElementById('hj-progress');
   if (hjProgress) {
     let hjMm = gsap.matchMedia();
-    
+
     hjMm.add("(min-width: 993px)", () => {
       gsap.to(hjProgress, {
         width: '100%',
@@ -503,7 +503,7 @@ faqItems.forEach(item => {
   const header = item.querySelector('.faq-header');
   header.addEventListener('click', () => {
     const isActive = item.classList.contains('active');
-    
+
     // Close all
     faqItems.forEach(faq => {
       faq.classList.remove('active');
@@ -548,10 +548,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const storiesGrid = document.querySelector('.stories-grid');
   const storyCards = document.querySelectorAll('.stories-grid .story-card');
   const dotsContainer = document.querySelector('.stories-slider-dots');
-  
+
   if (storiesGrid && storyCards.length > 0 && dotsContainer) {
     let currentStory = 0;
-    
+
     // Create dots
     storyCards.forEach((_, i) => {
       const dot = document.createElement('div');
@@ -562,17 +562,17 @@ document.addEventListener('DOMContentLoaded', () => {
       });
       dotsContainer.appendChild(dot);
     });
-    
+
     const dots = document.querySelectorAll('.story-dot');
-    
+
     function scrollToStory(index) {
       if (index < 0 || index >= storyCards.length) return;
       currentStory = index;
-      
+
       // Update dots
       dots.forEach(d => d.classList.remove('active'));
-      if(dots[currentStory]) dots[currentStory].classList.add('active');
-      
+      if (dots[currentStory]) dots[currentStory].classList.add('active');
+
       // Scroll grid
       const card = storyCards[currentStory];
       storiesGrid.scrollTo({
@@ -580,7 +580,7 @@ document.addEventListener('DOMContentLoaded', () => {
         behavior: 'smooth'
       });
     }
-    
+
     // Auto slide
     let storyAutoSlide = setInterval(() => {
       // Only auto-slide if on mobile/tab view (where dots are visible)
@@ -589,23 +589,23 @@ document.addEventListener('DOMContentLoaded', () => {
         scrollToStory(next);
       }
     }, 4000);
-    
+
     // Pause on touch/interaction
-    storiesGrid.addEventListener('touchstart', () => clearInterval(storyAutoSlide), {passive: true});
-    storiesGrid.addEventListener('mousedown', () => clearInterval(storyAutoSlide), {passive: true});
-    
+    storiesGrid.addEventListener('touchstart', () => clearInterval(storyAutoSlide), { passive: true });
+    storiesGrid.addEventListener('mousedown', () => clearInterval(storyAutoSlide), { passive: true });
+
     // Listen for manual scrolling to update dots
     storiesGrid.addEventListener('scroll', () => {
       if (window.innerWidth > 992) return;
-      
+
       const scrollLeft = storiesGrid.scrollLeft;
       const cardWidth = storyCards[0].offsetWidth;
       let newIndex = Math.round(scrollLeft / cardWidth);
       if (newIndex !== currentStory && newIndex >= 0 && newIndex < storyCards.length) {
         currentStory = newIndex;
         dots.forEach(d => d.classList.remove('active'));
-        if(dots[currentStory]) dots[currentStory].classList.add('active');
+        if (dots[currentStory]) dots[currentStory].classList.add('active');
       }
-    }, {passive: true});
+    }, { passive: true });
   }
 });
