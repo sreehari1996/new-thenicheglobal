@@ -322,42 +322,181 @@
     </div>
   </section>
 
-  <!-- Target Industries Section -->
-  <section class="section theme-light" style="padding-top: 5rem; padding-bottom: 8rem; background-color: var(--bg-white);">
+  <!-- Target Industries Section - Classic Premium Grid -->
+  <section class="section theme-light" style="padding: 100px 24px 120px; background-color: #fafafa; position: relative;">
     <div class="container reveal">
-      <div style="text-align: center; margin-bottom: 4rem;">
-        <span class="label">HIGH-DEMAND SECTORS</span>
-        <h2 class="font-serif">Where the Opportunities Are</h2>
-        <p class="subtitle" style="margin: 1rem auto 0; max-width: 600px; color: var(--text-dark-muted);">We map pathways specifically toward industries experiencing structural global shortages, ensuring a higher probability of long-term career success.</p>
+      
+      <!-- Premium Header -->
+      <div style="text-align: center; margin-bottom: 4.5rem; max-width: 800px; margin-left: auto; margin-right: auto;">
+        <div style="display: inline-flex; align-items: center; gap: 15px; margin-bottom: 1.5rem;">
+          <div style="width: 30px; height: 1px; background: var(--accent-primary);"></div>
+          <span class="label" style="color: var(--accent-primary); letter-spacing: 3px; border: none; padding: 0;">HIGH-DEMAND SECTORS</span>
+          <div style="width: 30px; height: 1px; background: var(--accent-primary);"></div>
+        </div>
+        <h2 class="font-serif" style="font-size: clamp(2.5rem, 4vw, 3.5rem); margin: 0 0 1.5rem; color: var(--text-dark); line-height: 1.2;">
+          Where the Opportunities Are.
+        </h2>
+        <p style="font-size: 1.15rem; line-height: 1.8; color: var(--text-dark-muted);">
+          Global opportunities are no longer limited to a handful of professions. We help individuals explore international pathways based on their qualifications, experience, skills and long-term goals.
+        </p>
       </div>
 
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+      <style>
+        .premium-grid-classic {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 30px;
+        }
+        .pg-card {
+          background: #ffffff;
+          border-radius: 16px;
+          padding: 2.5rem 2rem;
+          border: 1px solid rgba(0,0,0,0.05);
+          box-shadow: 0 10px 40px rgba(0,0,0,0.03);
+          transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+          display: flex;
+          flex-direction: column;
+          position: relative;
+          overflow: hidden;
+        }
+        .pg-card::before {
+          content: '';
+          position: absolute;
+          top: 0; left: 0; right: 0;
+          height: 4px;
+          background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+          opacity: 0;
+          transition: opacity 0.4s ease;
+        }
+        .pg-card:hover {
+          transform: translateY(-8px);
+          box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+          border-color: rgba(0,0,0,0.1);
+        }
+        .pg-card:hover::before {
+          opacity: 1;
+        }
+        .pg-icon {
+          width: 56px;
+          height: 56px;
+          border-radius: 50%;
+          background: #f4f6f8;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: var(--accent-secondary);
+          margin-bottom: 1.75rem;
+          transition: all 0.4s ease;
+        }
+        .pg-card:hover .pg-icon {
+          background: var(--accent-secondary);
+          color: #ffffff;
+          transform: scale(1.1);
+          box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .pg-title {
+          font-family: var(--font-serif);
+          font-size: 1.35rem;
+          color: var(--text-dark);
+          margin-bottom: 1rem;
+          line-height: 1.3;
+        }
+        .pg-desc {
+          color: var(--text-dark-muted);
+          font-size: 0.95rem;
+          line-height: 1.7;
+          margin-bottom: 1.5rem;
+          flex-grow: 1;
+        }
+        .pg-tags {
+          font-size: 0.85rem;
+          color: var(--text-dark-muted);
+          line-height: 1.6;
+          padding-top: 1.25rem;
+          border-top: 1px solid rgba(0,0,0,0.06);
+          margin-top: auto;
+        }
+        .pg-tags strong {
+          color: var(--text-dark);
+          font-weight: 600;
+          display: block;
+          margin-bottom: 0.25rem;
+        }
+        @media (max-width: 1200px) {
+          .premium-grid-classic { grid-template-columns: repeat(3, 1fr); }
+        }
+        @media (max-width: 992px) {
+          .premium-grid-classic { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 600px) {
+          .premium-grid-classic { grid-template-columns: 1fr; }
+        }
+      </style>
+
+      <div class="premium-grid-classic">
         
-        <!-- Sector 1 -->
-        <div style="background: rgba(142, 164, 184, 0.05); border: 1px solid rgba(142, 164, 184, 0.2); padding: 3rem 2rem; border-radius: var(--radius-lg); text-align: center; transition: transform 0.3s ease;">
-          <div style="width: 60px; height: 60px; background: rgba(0, 168, 204, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; color: var(--accent-secondary);">
-            <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
-          </div>
-          <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--text-dark);">Healthcare & Nursing</h3>
-          <p style="color: var(--text-dark-muted); font-size: 0.95rem; line-height: 1.6;">Direct employment and specialized bridging programs for qualified nurses and allied health professionals in the US, UK, and Australia.</p>
+        <!-- Card 1 -->
+        <div class="pg-card">
+          <div class="pg-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg></div>
+          <h3 class="pg-title">Healthcare & Nursing</h3>
+          <p class="pg-desc">International pathways for nurses, healthcare professionals and allied health talent through higher education and professional development.</p>
+          <div class="pg-tags"><strong>Opportunities include:</strong> Nursing, Aged Care, Healthcare Management, Allied Health, Clinical Support.</div>
         </div>
 
-        <!-- Sector 2 -->
-        <div style="background: rgba(142, 164, 184, 0.05); border: 1px solid rgba(142, 164, 184, 0.2); padding: 3rem 2rem; border-radius: var(--radius-lg); text-align: center; transition: transform 0.3s ease;">
-          <div style="width: 60px; height: 60px; background: rgba(0, 168, 204, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; color: var(--accent-secondary);">
-            <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
-          </div>
-          <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--text-dark);">Technology & Engineering</h3>
-          <p style="color: var(--text-dark-muted); font-size: 0.95rem; line-height: 1.6;">Education-to-career and skilled professional pathways for software engineers, data scientists, and specialized technicians.</p>
+        <!-- Card 2 -->
+        <div class="pg-card">
+          <div class="pg-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line></svg></div>
+          <h3 class="pg-title">Technology & Engineering</h3>
+          <p class="pg-desc">Global education and career pathways for technology professionals — from early-career graduates to experienced specialists.</p>
+          <div class="pg-tags"><strong>Opportunities include:</strong> Software Engineering, AI & ML, Data Analytics, Cybersecurity, Cloud Computing.</div>
         </div>
 
-        <!-- Sector 3 -->
-        <div style="background: rgba(142, 164, 184, 0.05); border: 1px solid rgba(142, 164, 184, 0.2); padding: 3rem 2rem; border-radius: var(--radius-lg); text-align: center; transition: transform 0.3s ease;">
-          <div style="width: 60px; height: 60px; background: rgba(0, 168, 204, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; color: var(--accent-secondary);">
-            <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
-          </div>
-          <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--text-dark);">Hospitality & Management</h3>
-          <p style="color: var(--text-dark-muted); font-size: 0.95rem; line-height: 1.6;">International internships and training exchange programs in global luxury hotels, culinary arts, and tourism hubs.</p>
+        <!-- Card 3 -->
+        <div class="pg-card">
+          <div class="pg-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5"></path></svg></div>
+          <h3 class="pg-title">Business & Finance</h3>
+          <p class="pg-desc">International pathways for professionals looking to build careers across corporate, financial and management functions.</p>
+          <div class="pg-tags"><strong>Opportunities include:</strong> Finance, Accounting, Business Analytics, Project Management, HR, Sales.</div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="pg-card">
+          <div class="pg-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg></div>
+          <h3 class="pg-title">Hospitality & Tourism</h3>
+          <p class="pg-desc">International education, training and internship pathways providing hands-on exposure within global hospitality markets.</p>
+          <div class="pg-tags"><strong>Opportunities include:</strong> Hotel Management, Culinary Arts, Pastry, Food & Beverage, Resort Operations.</div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="pg-card">
+          <div class="pg-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg></div>
+          <h3 class="pg-title">Marketing & Creative</h3>
+          <p class="pg-desc">Global opportunities are expanding for professionals who combine creativity with technology and commercial thinking.</p>
+          <div class="pg-tags"><strong>Opportunities include:</strong> Digital Marketing, UI/UX, Graphic Design, Content Creation, Media, Branding.</div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="pg-card">
+          <div class="pg-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon></svg></div>
+          <h3 class="pg-title">Logistics & Supply Chain</h3>
+          <p class="pg-desc">Explore education and career-linked pathways within the global movement of products, services and people.</p>
+          <div class="pg-tags"><strong>Opportunities include:</strong> Logistics, Supply Chain Management, Procurement, Warehousing, Transportation.</div>
+        </div>
+
+        <!-- Card 7 -->
+        <div class="pg-card">
+          <div class="pg-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg></div>
+          <h3 class="pg-title">Skilled & Technical</h3>
+          <p class="pg-desc">Technical qualifications and practical experience can also create highly valuable global pathways.</p>
+          <div class="pg-tags"><strong>Opportunities include:</strong> Manufacturing, Automotive, Construction, Electrical, Mechanical, Maintenance.</div>
+        </div>
+
+        <!-- Card 8 -->
+        <div class="pg-card">
+          <div class="pg-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg></div>
+          <h3 class="pg-title">Research & Science</h3>
+          <p class="pg-desc">For candidates with strong academic or technical backgrounds, we explore opportunities in rapidly developing industries.</p>
+          <div class="pg-tags"><strong>Opportunities include:</strong> Biotechnology, Life Sciences, Renewable Energy, Robotics, Sustainability, AI.</div>
         </div>
 
       </div>
@@ -438,8 +577,8 @@
       <div class="footer-contact">
         <h4>Contact Us</h4>
         <div class="contact-details">
-          <p><strong>Headquarters</strong><br>Kochi, Kerala, India</p>
-          <p><a href="mailto:hello@nicheglobal.com">hello@nicheglobal.com</a><br><a href="tel:+910000000000">+91 0000 000 000</a></p>
+          <p><strong>Headquarters</strong><br>Ansarwors Building, Floor 4,<br>Infopark Expressway, Rajagiri Valley Rd,<br>Kakkanad, Kochi, Kerala 682039</p>
+          <p><a href="mailto:info@nicheglobal.com">info@nicheglobal.com</a><br><a href="tel:+910000000000">+91 6282392226</a></p>
         </div>
       </div>
     </div>
