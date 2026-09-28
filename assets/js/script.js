@@ -124,7 +124,7 @@ window.addEventListener('scroll', () => {
     header.style.backgroundColor = '#001630';
     header.style.backdropFilter = 'blur(10px)';
     header.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.3)';
-    header.style.padding = '1rem 24px';
+    header.style.padding = '1.25rem 24px'; // Increased padding to prevent cut-off look
   } else {
     header.style.backgroundColor = 'transparent';
     header.style.backdropFilter = 'none';
