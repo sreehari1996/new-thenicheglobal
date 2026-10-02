@@ -53,7 +53,7 @@
 
 .story-hero p {
   font-size: 1.35rem;
-  color: rgba(255,255,255,0.7);
+  color: rgba(255, 255, 255, 0.7);
   max-width: 700px;
   margin: 0 auto;
   line-height: 1.6;
@@ -61,7 +61,8 @@
 
 /* Grid Layout Journey Section */
 .journey-timeline-section {
-  background: var(--bg-light); /* Clean light gray background */
+  background: var(--bg-light);
+  /* Clean light gray background */
   padding: 8rem 24px;
   position: relative;
   overflow: hidden;
@@ -136,7 +137,7 @@
   text-transform: uppercase;
   letter-spacing: 2px;
   z-index: 2;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .story-grid-content {
@@ -186,6 +187,7 @@
   .stories-grid-container {
     grid-template-columns: repeat(2, 1fr);
   }
+
   .story-grid-item:nth-child(2),
   .story-grid-item:nth-child(3) {
     margin-top: 0;
@@ -211,6 +213,14 @@
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
   margin-top: 3rem;
+
+}
+
+@media (max-width: 767px) {
+  .related-links-grid {
+    padding: 20px;
+    /* grid-template-columns: 1fr; */
+  }
 }
 
 .related-link-card {
@@ -233,7 +243,8 @@
   box-shadow: var(--shadow-lg);
 }
 
-.related-link-card:hover h3, .related-link-card:hover p {
+.related-link-card:hover h3,
+.related-link-card:hover p {
   color: var(--text-light);
 }
 
@@ -251,6 +262,6 @@
 }
 
 .related-link-card:hover .related-icon {
-  background: rgba(255,255,255,0.1);
+  background: rgba(255, 255, 255, 0.1);
   color: var(--text-light);
 }
